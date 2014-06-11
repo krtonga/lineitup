@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
@@ -23,10 +24,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
+    redirect_to event_path(event)
   end
 
   def destroy
     event.delete(params[:id])
+    redirect_to events_path
   end
 
 private
