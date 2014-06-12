@@ -10,11 +10,11 @@ class EventsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-
+    new_event = Event.new(event_params)
+    redirect_to event_path(new_event)
   end
 
   def edit
