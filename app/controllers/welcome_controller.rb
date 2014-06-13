@@ -1,6 +1,6 @@
 
 class WelcomeController < ApplicationController
   def index
-    @secret = KEY1
+    @secret = ENV["KEY1"]
   end
 end
