@@ -15,17 +15,13 @@
 
  */
 
-
-.title {
-  background-color: #2B2D33;
-  color: white;
-  font-size: 24px;
-  height: 70px;
-}
-
 .log-in {
   background-color: #BE9986;
-  height: 120px;
+  height: 135px;
+}
+
+.right {
+  float: right;
 }
 
 .arrow {
