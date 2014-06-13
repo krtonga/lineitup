@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   end
 
   def update
+
     @event = Event.find(params[:id])
     @event.update(event_params)
     redirect_to event_path(event)
@@ -32,9 +33,9 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
-private
-
-event_params = params.require(:event).permit(:name, :category)
-
+  private
+  def event_params
+    event_params = params.require(:event).permit(:name, :category)
+  end
 
 end
