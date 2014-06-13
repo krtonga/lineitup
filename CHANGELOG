@@ -1,0 +1,17 @@
+6/13/14 9:43AM
+- made Changelog
+- met with Matt to talk about rubric and project scope
+- Jeff has working API
+- Jeff has figured out API keys (we think)
+
+6/13/14 10:40AM
+- had stand-up
+- goal: get basic functionality today then work, the three, on design (if no cool design, not sellable)
+- went over pg views
+- divided tasks
+
+6/13/14 3:04PM
+- basic search form put together including jquery calenders with default set and remote.ip pull
+- on heroku
+- migration for db for all needed event attributes
+- continued progress on understanding NYT data
