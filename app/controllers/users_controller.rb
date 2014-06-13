@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    binding.pry
     default_category = Category.create(name: "All")
     @user.categories << default_category
     redirect_to login_path
