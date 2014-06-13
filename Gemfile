@@ -45,3 +45,5 @@ gem 'rails_12factor', group: :production
 gem 'sorcery'
 
 gem 'pry'
+gem 'gmaps4rails'
+gem 'geocoder'
