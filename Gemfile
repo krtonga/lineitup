@@ -48,4 +48,5 @@ gem 'pry'
 gem 'gmaps4rails'
 gem 'geocoder'
 
-gem 'jquery-ui-rails'
+gem 'rspec-rails'
+
