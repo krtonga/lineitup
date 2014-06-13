@@ -47,3 +47,5 @@ gem 'sorcery'
 gem 'pry'
 gem 'gmaps4rails'
 gem 'geocoder'
+
+gem 'jquery-ui-rails'

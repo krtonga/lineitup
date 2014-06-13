@@ -12,4 +12,35 @@
  *
  *= require_tree .
  *= require_self
+
  */
+
+
+.title {
+  background-color: #2B2D33;
+  color: white;
+  font-size: 24px;
+  height: 70px;
+}
+
+.log-in {
+  background-color: #BE9986;
+  height: 120px;
+}
+
+.arrow {
+  background-color: #C2CBCD;
+  height: 200px;
+}
+
+.searches {
+  margin: 30px;
+  padding: 20px;
+  font-size: 2.5em;
+  line-height: 0.5em;
+}
+
+td {
+  padding: 5px;
+  color: grey;
+}
