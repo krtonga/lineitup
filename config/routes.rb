@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/login' => 'sessions#new', as: 'login'
+  #get '/login' => 'sessions#new', as: 'login'
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
 
   root 'welcome#index'
-  get '/events' => 'events#index'
+  get '/events' => 'events#index', as: 'event'
 
 end
