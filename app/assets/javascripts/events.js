@@ -110,11 +110,12 @@ function clickedEvent(id) {
 }
 
 EventModel.prototype.create = function() {
+  var authenticityToken = $('input[name=authenticity_token]').val();
   $.ajax({
     url: '/events',
     method: 'post',
     dataType: 'json',
-    data: {event: {name: this.eventName}},
+    data: {authenticity_token: authenticityToken, event: {name: this.eventName}},
     success: function(data) {
       console.log(data);
     }
@@ -123,7 +124,3 @@ EventModel.prototype.create = function() {
 
 var eventCollection = new EventCollection();
 
-$(function() {
-  //eventCollection = new EventCollection();
-  eventCollection.fetch();
-});

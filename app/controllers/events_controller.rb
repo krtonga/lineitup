@@ -1,6 +1,6 @@
 
 class EventsController < ApplicationController
-  before_action :require_login, only: [:profile]
+  before_action :require_login, only: [:profile, :create]
 
   def index
     @user = User.new
@@ -14,6 +14,11 @@ class EventsController < ApplicationController
     end
   end
 
+
+  def list
+
+  end
+
   def new
   end
 
@@ -25,6 +30,8 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create(event_params)
+    default_category = Category.where(user_id: current_user.id, name: 'All').take
+    default_category.events << event
     respond_to do |format|
       format.json {render :json => event.to_json}
       format.html {redirect_to '/events'}

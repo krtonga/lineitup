@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/events' => 'events#index', as: 'event'
   post '/events' => 'events#create'
-  get '/events/show' => 'events#show', as: 'event_list'
+  get '/events/list' => 'events#list', as: 'event_list'
+  get '/events/show' => 'events#show'
 
 end
