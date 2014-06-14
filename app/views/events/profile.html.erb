@@ -1,0 +1,16 @@
+
+
+<a href='' id='logout-link'>Logout</a>
+
+<h2><%= current_user.email %></h2>
+<h2>This is your corner</h2>
+
+
+
+<div id="login-div" style="display:none">
+    <%= form_tag sessions_path do %>
+        <%= text_field_tag :email %>
+        <%= password_field_tag :password %>
+        <%= button_tag('Login', {type: 'button', id: 'login-button'}) %>
+    <% end %>
+</div>
