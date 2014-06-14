@@ -40,8 +40,9 @@
   line-height: 0.5em;
 }
 
-.question_image {
-
+.what, .when, .where {
+  float: left;
+  width: 400px;
 }
 
 td {

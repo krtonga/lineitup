@@ -9,23 +9,26 @@
 
   <div class="container searches">
 
-    <div class="when">
+    <div class="five columns when">
 
       <div class="question_image left">
         <%= image_tag "when.png" %>
       </div>
-      <label for="form">From</label>
-      <input type="text" class="datepickerFrom" size="30" ></p>
+      <h4>Discover<br> by<br> Date </h4>
+      <div>
+        <label for="form">From</label>
+        <input type="text" class="datepickerFrom" size="30" >
+      </div>
+
       <label for="to">to</label>
       <input type="text" class="datepickerTo" size="30"></p>
     <hr>
     </div>
 
-    <div class="what">
+    <div class="five columns what">
       <div class="question_image left">
         <%= image_tag "what.png" %>
       </div>
-
 
       <%= fields_for "events" do |form| %>
       <h4>Search by Keyword</h4>
@@ -75,10 +78,11 @@
       <hr>
     </div>
 
-    <div class="where">
+    <div class="five columns where">
       <div class="question_image left">
         <%= image_tag "where.png" %>
       </div>
+      <h4>Find <br>What is <br>Near You!</h4>
       <form action="/search">
         <label for="location">Your location:</label>
         <input type="text" title="We automatically grab the IP address of your local server, throw it into a Geocoding gem, and voila! There you are on the map!" value= <%= @ip %> >
