@@ -50,3 +50,5 @@ gem 'geocoder'
 
 gem 'rspec-rails'
 
+gem 'httparty'
+

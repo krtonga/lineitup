@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
 
-  #get '/login' => 'sessions#new', as: 'login'
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy', as: 'logout'
 
-  get '/signup' => 'users#new', as: 'signup'
   post '/users' => 'users#create', as: 'users'
 
-  get '/profile' => 'users#profile', as: 'profile'
+  get 'events/profile' => 'events#profile', as: 'profile'
 
-
-  #resources :events
-
-
-
-  root 'events#index'
+  root 'welcome#index'
   get '/events' => 'events#index', as: 'event'
+  post '/events' => 'events#create'
+  get '/events/show' => 'events#show', as: 'event_list'
 
 end

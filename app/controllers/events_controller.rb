@@ -1,20 +1,34 @@
 
 class EventsController < ApplicationController
+  before_action :require_login, only: [:profile]
 
   def index
     @user = User.new
   end
 
   def show
-    @event = Event.new(event_params)
+    classical = Event.pullAPI
+    respond_to do |format|
+      format.html
+      format.json {render json: classical.to_json}
+    end
   end
 
   def new
   end
 
+  def profile
+    @user = User.find(current_user.id)
+
+  end
+
+
   def create
-    new_event = Event.new(event_params)
-    redirect_to event_path(new_event)
+    event = Event.create(event_params)
+    respond_to do |format|
+      format.json {render :json => event.to_json}
+      format.html {redirect_to '/events'}
+    end
   end
 
   def edit
@@ -35,7 +49,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    event_params = params.require(:event).permit(:name, :category)
+    event_params = params.require(:event).permit(:name)
   end
 
 end
