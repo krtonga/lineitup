@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
 
-  root 'welcome#index'
+  root 'events#index'
   get '/events' => 'events#index', as: 'event'
 
 end
