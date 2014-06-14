@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
 
   def list
-
+    @user = User.new
   end
 
   def new

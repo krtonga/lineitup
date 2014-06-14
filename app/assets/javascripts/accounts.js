@@ -4,6 +4,7 @@ $(function() {
   showHide();
 
   $('#signup-link').on('click', function() {
+    $('#login-div').hide();
     $('#signup-div').show();
     return false;
   });
@@ -20,6 +21,7 @@ $(function() {
 
   $('#login-link').on('click', function() {
     $('#login-div').show();
+    $('#signup-div').hide();
     return false;
   });
 
