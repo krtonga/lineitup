@@ -24,6 +24,10 @@
   float: right;
 }
 
+.left {
+  float: left;
+}
+
 .arrow {
   background-color: #C2CBCD;
   height: 200px;
@@ -32,8 +36,12 @@
 .searches {
   margin: 30px;
   padding: 20px;
-  font-size: 2.5em;
+  font-size: 1em;
   line-height: 0.5em;
+}
+
+.question_image {
+
 }
 
 td {
