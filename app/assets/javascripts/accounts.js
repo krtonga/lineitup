@@ -1,6 +1,8 @@
 
 $(function() {
 
+  showHide();
+
   $('#signup-link').on('click', function() {
     $('#signup-div').show();
     return false;
@@ -22,6 +24,8 @@ $(function() {
   });
 
   $('#logout-link').on('click', function() {
+    var authenticityToken = $('input[name=authenticity_token]').val();
+    logOut();
     return false;
   });
 
@@ -38,6 +42,32 @@ $(function() {
   });
 
 });
+
+function showHide() {
+  var status = $('.user-id-span').data("user");
+  if (status == 'no_user') {
+    $('#logout-link').hide();
+  } else {
+    $('#login-link').hide();
+    $('#signup-link').hide();
+  }
+}
+
+function logOut() {
+    var authenticityToken = $('input[name=authenticity_token]').val();
+    $.ajax({
+      url: '/sessions',
+      method: 'delete',
+      dataType: 'json',
+      data: {authenticity_token: authenticityToken},
+      success: function() {
+        console.log('hello');
+      }
+    });
+    $('#logout-link').hide();
+    $('#login-link').show();
+    $('#signup-link').show();
+}
 
 
 function userParam() {

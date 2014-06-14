@@ -14,7 +14,10 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path
+    respond_to do |format|
+      format.json {render :json => {message: "hello"}}
+      format.html {redirect_to '/'}
+    end
   end
 
 end

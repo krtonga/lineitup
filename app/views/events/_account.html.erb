@@ -1,6 +1,12 @@
 
 
-<a href='' id='logout-link' style="display:none">Logout</a>
+<% if current_user %>
+    <span class="user-id-span" data-user='<%=current_user.id%>'></span>
+<% else %>
+    <span class="user-id-span" data-user='no_user'></span>
+<% end %>
+
+<a href='' id='logout-link'>Logout</a>
 <a href='' id='signup-link'>Signup</a>
 <a href='' id='login-link'>Login</a>
 
