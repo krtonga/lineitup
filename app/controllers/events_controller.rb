@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
   def list
     @user = User.new
+    @p = params
   end
 
   def new
