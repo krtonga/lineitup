@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615144303) do
+ActiveRecord::Schema.define(version: 20140615151154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20140615144303) do
     t.string   "recurstring"
     t.string   "event_name"
     t.string   "event_detail_url"
-    t.string   "web_description"
     t.string   "city"
     t.string   "state"
     t.string   "times_pick"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140615144303) do
     t.string   "event_date_list"
     t.integer  "event_id"
     t.string   "free"
+    t.text     "web_description"
   end
 
   create_table "haps", force: true do |t|

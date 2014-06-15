@@ -33,7 +33,17 @@ function EventModel(data) {
   this.recurringStartDate = data.recurring_start_date;
   this.recurringEndDate = data.recurring_end_date;
   this.recurDays = data.recur_days;
-  this.category = data.category
+  this.category = data.category;
+  this.eventUrl = data.event_detail_url;
+  this.webDescription = data.web_description;
+  this.venueName = data.venue_name;
+  this.venueDetailUrl = data.venue_detail_url;
+  this.latitude = data.geocode_latitude;
+  this.longitude = data.geocode_longitude;
+  this.address = data.street_address;
+  this.phone = data.telephone;
+  this.venueUrl = data.venue_website;
+  this.free = data.free;
   this.cleanUpDates();
   //console.log(data.event_date_list.join());
 }
@@ -116,7 +126,27 @@ EventModel.prototype.create = function() {
     url: '/events',
     method: 'post',
     dataType: 'json',
-    data: {authenticity_token: authenticityToken, event: {event_name: this.eventName, category: this.category}},
+    data: {authenticity_token: authenticityToken, event: {event_name: this.eventName,
+                                                          category: this.category,
+                                                          end_date: this.endDate,
+                                                          start_date: this.startDate,
+                                                          recurstring: this.recurString,
+                                                          event_detail_url: this.eventUrl,
+                                                          web_description: this.webDescription,
+                                                          recurring_start_date: this.recurringStartDate,
+                                                          recurring_end_date: this.recurringEndDate,
+                                                          recur_days: this.recurDays,
+                                                          venue_name: this.venueName,
+                                                          venue_detail_url: this.venueDetailUrl,
+                                                          geocode_latitude: this.latitude,
+                                                          geocode_longitude: this.longitude,
+                                                          street_address: this.address,
+                                                          telephone: this.phone,
+                                                          venue_website: this.venueUrl,
+                                                          event_date_list: this.eventDateList,
+                                                          event_id: this.eventID,
+                                                          free: this.free
+                                                        }},
     success: function(data) {
       console.log(data);
     }
