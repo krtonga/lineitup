@@ -103,7 +103,8 @@ EventView.prototype.render = function() {
   $link.mouseenter(function() {
     timer = setTimeout(function() {
       console.log(that.model.webDescription);
-    }, 2000);
+      displayEventDetails(that.model);
+    }, 1000);
 
     //console.log(that.model.eventID);
   }).mouseleave(function() {

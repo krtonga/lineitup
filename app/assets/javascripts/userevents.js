@@ -12,11 +12,9 @@ EventCollection.prototype.fetchUserEvents = function() {
         var eventView = new EventView(newEvent);
         $('#user-event-list').append(eventView.renderUserEvents().el);
       });
-      //that.sortByDate();
     }
   });
-
-}
+} // end fetchUserEvents
 
 
 
@@ -27,14 +25,15 @@ $(function () {
     console.log("profile");
     userEvents.fetchUserEvents();
   }
-});
+  $('#event-details-close').on('click', function() {
+    $('#event-details-div').hide();
+  });
+}); // end document ready
 
 
 EventView.prototype.renderUserEvents = function() {
-  //var $eventLi = $('<li>').text('Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString);
   var $eventLi =$('<li>');
   var $link = $('<a>', {
-    //text: 'Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString,
     text: this.model.category + ':  ' + this.model.eventName,
     href: '',
     id: this.model.eventID,
@@ -47,9 +46,8 @@ EventView.prototype.renderUserEvents = function() {
   $link.mouseenter(function() {
     timer = setTimeout(function() {
       console.log(that.model.webDescription);
-    }, 4000);
-
-    //console.log(that.model.eventID);
+      displayEventDetails(that.model);
+    }, 1000);
   }).mouseleave(function() {
     clearTimeout(timer);
   });
@@ -57,8 +55,24 @@ EventView.prototype.renderUserEvents = function() {
 
   this.el = $eventLi;
   return this;
-}
+} // end renderUserEvents
 
 function clickedUserEvent(id) {
   console.log("delete function?");
+} // end clickedUserEvent
+
+
+function displayEventDetails(event) {
+  $detailsList = $('#event-details-list')
+  $detailsList.html('');
+  var descriptionEl = $('<li>').html(event.webDescription);
+  var eventUrl = $('<a>', {
+                   text: event.eventUrl,
+                   href: event.eventUrl
+                });
+  $detailsList.append(descriptionEl);
+  $detailsList.append(eventUrl);
+  $('#event-details-div').show();
+  $('#event-details-close').show();
+
 }
