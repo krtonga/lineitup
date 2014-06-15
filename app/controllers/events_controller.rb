@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   def userevents
     curr_user = User.find(current_user.id)
     results = curr_user.events
+    #@test = results[1]
     respond_to do |format|
       format.html
       format.json {render json: results.to_json}
@@ -36,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   def profile
-    @user = User.new
+
 
   end
 
@@ -69,7 +70,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    event_params = params.require(:event).permit(:name)
+    event_params = params.require(:event).permit(:event_name)
   end
 
 end

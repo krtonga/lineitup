@@ -116,7 +116,7 @@ EventModel.prototype.create = function() {
     url: '/events',
     method: 'post',
     dataType: 'json',
-    data: {authenticity_token: authenticityToken, event: {name: this.eventName}},
+    data: {authenticity_token: authenticityToken, event: {event_name: this.eventName}},
     success: function(data) {
       console.log(data);
     }

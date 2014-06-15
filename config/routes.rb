@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post '/events' => 'events#create'
   get '/events/list' => 'events#list', as: 'event_list'
   get '/events/show' => 'events#show'
+  get '/events/userevents' => 'events#userevents'
+
 
 end
