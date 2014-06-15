@@ -7,7 +7,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    classical = Event.pullAPI
+
+    classical = Event.pullAPI(params[:filter])
     respond_to do |format|
       format.html
       format.json {render json: classical.to_json}
@@ -18,6 +19,8 @@ class EventsController < ApplicationController
   def list
     @user = User.new
     @p = params
+    @filter_string = Event.make_category_filter(params)
+
   end
 
   def new

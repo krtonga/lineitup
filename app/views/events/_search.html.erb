@@ -6,73 +6,71 @@
 
   <!-- ........................ -->
 
-
+<%= form_tag('/events/list', method: :get) do %>
   <div class="container searches">
     <div class="when">
       <label for="form">From</label>
-      <input type="text" class="datepickerFrom" size="30" ></p>
+      <input type="text" name="start_date" class="datepickerFrom" size="30" ></p>
       <label for="to">to</label>
-      <input type="text" class="datepickerTo" size="30"></p>
+      <input type="text" name="end_date" class="datepickerTo" size="30"></p>
     <hr>
     </div>
-
     <div class="what">
-      <%= fields_for "events" do |form| %>
       <h4>Search by Keyword</h4>
-        <input type="text">
+        <input type="text" name="search_word">
 
       <h4>Search by Category</h4>
         <table class="category">
           <tr>
             <td>forChildren</td>
-            <td><%= form.check_box :name %></td>
+            <td><%= check_box_tag :forChildren %></td>
           </tr>
           <tr>
             <td>Art</td>
-            <td><%= form.check_box :name %></td>
+            <td><%= check_box_tag :Art %></td>
           </tr>
           <tr>
             <td>Theater</td>
-            <td> <%= form.check_box :name %></td>
+            <td> <%= check_box_tag :Theater %></td>
           </tr>
           <tr>
             <td> Pop </td>
-            <td> <%= form.check_box :name %></td>
+            <td> <%= check_box_tag :Pop %></td>
           </tr>
           <tr>
             <td> Comedy </td>
-            <td> <%= form.check_box :name %></td>
+            <td> <%= check_box_tag :Comedy %></td>
           </tr>
           <tr>
             <td>Dance </td>
-            <td> <%= form.check_box :name %></td>
+            <td> <%= check_box_tag :Dance %></td>
           </tr>
           <tr>
             <td> Jazz </td>
-            <td> <%= form.check_box :name %> </td>
+            <td> <%= check_box_tag :Jazz %> </td>
           </tr>
           <tr>
             <td> Classical </td>
-            <td> <%= form.check_box :name %> </td>
+            <td> <%= check_box_tag :Classical %> </td>
           </tr>
           <tr>
             <td>spareTimes</td>
-            <td><%= form.check_box :name %></td>
+            <td><%= check_box_tag :spareTimes %></td>
           </tr>
         </table>
-      <% end %>
       <br>
       <hr>
     </div>
 
     <div class="where">
-      <form action="/search">
         <label for="location">Your location:</label>
-        <input type="text" title="We automatically grab the IP address of your local server, throw it into a Geocoding gem, and voila! There you are on the map!" value= <%= @ip %> >
+        <input type="text" name="location" title="We automatically grab the IP address of your local server, throw it into a Geocoding gem, and voila! There you are on the map!" value= <%= @ip %> >
         <%= @ip %>
-      </form>
     </div>
-
+  </div>
+  <%= submit_tag(value="Search") %>
+<% end %>
 
 
 </div>
+

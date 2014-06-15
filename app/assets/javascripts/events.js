@@ -47,6 +47,7 @@ EventCollection.prototype.fetch = function() {
   $.ajax({
     url: '/events/show',
     dataType: 'json',
+    data: {filter: $('#filter_string').text()},
     success: function(data) {
       $.each(data, function(index, currEvent) {
         var newEvent = new EventModel(currEvent);
@@ -124,3 +125,8 @@ EventModel.prototype.create = function() {
 
 var eventCollection = new EventCollection();
 
+$(function () {
+  if ($('span')[0].id == "this_is_list") {
+    eventCollection.fetch();
+  }
+});
