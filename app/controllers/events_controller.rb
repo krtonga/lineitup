@@ -8,10 +8,10 @@ class EventsController < ApplicationController
 
   def show
 
-    classical = Event.pullAPI(params[:filter])
+    results = Event.pullAPI(params[:filter])
     respond_to do |format|
       format.html
-      format.json {render json: classical.to_json}
+      format.json {render json: results.to_json}
     end
   end
 
@@ -26,8 +26,17 @@ class EventsController < ApplicationController
   def new
   end
 
+  def userevents
+    curr_user = User.find(current_user.id)
+    results = curr_user.events
+    respond_to do |format|
+      format.html
+      format.json {render json: results.to_json}
+    end
+  end
+
   def profile
-    @user = User.find(current_user.id)
+    @user = User.new
 
   end
 

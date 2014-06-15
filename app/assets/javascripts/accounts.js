@@ -64,6 +64,7 @@ function logOut() {
       data: {authenticity_token: authenticityToken},
       success: function() {
         console.log('hello');
+        window.location.reload();
       }
     });
     $('#logout-link').hide();
@@ -92,6 +93,7 @@ function signUp(paramObject) {
     data: {authenticity_token: authenticityToken, user: paramObject},
     success: function(data) {
       //console.log(data.email);
+      window.location.reload();
     }
   });
 }
@@ -117,6 +119,7 @@ function loginSession(paramObject) {
     data: paramObject,
     success: function(data) {
       console.log(data);
+      window.location.reload();
     }
   });
 }
