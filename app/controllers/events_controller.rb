@@ -1,13 +1,12 @@
 
 class EventsController < ApplicationController
-  before_action :require_login, only: [:profile, :create]
+  before_action :require_login, only: [:profile, :create, :userevents]
 
   def index
     @user = User.new
   end
 
   def show
-
     results = Event.pullAPI(params[:filter])
     respond_to do |format|
       format.html
@@ -23,23 +22,23 @@ class EventsController < ApplicationController
 
   end
 
-  def new
-  end
+  # def new
+  # end
 
   def userevents
     curr_user = User.find(current_user.id)
     results = curr_user.events
     #@test = results[1]
     respond_to do |format|
-      format.html
+      format.html {render :profile}
       format.json {render json: results.to_json}
     end
   end
 
-  def profile
+  # def profile
 
 
-  end
+  # end
 
 
   def create
@@ -52,21 +51,21 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-    @event = Event.find(params[:id])
-  end
+  # def edit
+  #   @event = Event.find(params[:id])
+  # end
 
-  def update
+  # def update
 
-    @event = Event.find(params[:id])
-    @event.update(event_params)
-    redirect_to event_path(event)
-  end
+  #   @event = Event.find(params[:id])
+  #   @event.update(event_params)
+  #   redirect_to event_path(event)
+  # end
 
-  def destroy
-    event.delete(params[:id])
-    redirect_to events_path
-  end
+  # def destroy
+  #   event.delete(params[:id])
+  #   redirect_to events_path
+  # end
 
   private
   def event_params
