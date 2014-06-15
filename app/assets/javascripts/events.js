@@ -100,8 +100,14 @@ EventView.prototype.render = function() {
     }
   });
   var that = this;
-  $link.hover(function() {
-    console.log(that.model.eventID);
+  $link.mouseenter(function() {
+    timer = setTimeout(function() {
+      console.log(that.model.webDescription);
+    }, 2000);
+
+    //console.log(that.model.eventID);
+  }).mouseleave(function() {
+    clearTimeout(timer);
   });
   $eventLi.append($link);
 
