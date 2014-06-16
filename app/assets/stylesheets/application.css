@@ -15,9 +15,11 @@
 
  */
 
-.log-in {
-  background-color: #BE9986;
-  height: 135px;
+.nav {
+  text-align: center;
+  font-family: Copperplate;
+  font-size: 2em;
+  background-color: lightgray;
 }
 
 .right {
@@ -37,15 +39,45 @@
   margin: 30px;
   padding: 20px;
   font-size: 1em;
-  line-height: 0.5em;
+  line-height: 1em;
 }
 
 .what, .when, .where {
   float: left;
-  width: 400px;
+}
+
+.date-from-label {
+  position: relative;
+  top: 175px;
+  right: 95px;
+}
+
+.your-location-label {
+  position: relative;
+  top: 245px;
+  right: 95px;
+}
+
+/*FOR SMALLER SCREENS/SIDEBARS*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .date-from-label { position: relative; top: 0px; right: 0px; }
+  .your-location-label { position: relative; top: 0px; right: 0px; }
 }
 
 td {
   padding: 5px;
   color: grey;
 }
+
+
+
+em {
+  color: lightblue;
+}
+
