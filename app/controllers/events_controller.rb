@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.new
+    @ip = request.remote_ip
   end
 
   def show
