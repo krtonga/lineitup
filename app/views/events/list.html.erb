@@ -1,13 +1,13 @@
 
 <span id="this_is_list"></span>
-<span id="filter_string" display="none"><%=@filter_string%></span>
+<span id="filter_string" style="display:none"><%=@filter_string%></span>
 
 <%= render 'account' %>
 <%= token_tag %>
 
-<%= @p %>
-<%= @c %>
+<!-- %= @p % -->
 
-<%= render "eventdetails" %>
 
 <ul id="event-list"></ul>
+
+<%= render "eventdetails" %>

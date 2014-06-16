@@ -19,3 +19,7 @@
 6/13/14 3:29PM
 - we can save info to the db! on jeffs local spike.
 - made '_search' form partial and brought in jquery ui and styling
+
+6/16/14 11:45AM
+- incorporated modified search partial and IP address
+- basic functionality sucessful w/ NYT API
