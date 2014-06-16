@@ -1,6 +1,6 @@
 
 $(function() {
-
+  console.log("the window has loaded...");
   showHide();
 
   $('#signup-link').on('click', function() {
