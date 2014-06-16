@@ -61,9 +61,11 @@ EventCollection.prototype.fetch = function() {
     success: function(data) {
       $.each(data, function(index, currEvent) {
         var newEvent = new EventModel(currEvent);
-        that.models.push(newEvent);
-        var eventView = new EventView(newEvent);
-        $('#event-list').append(eventView.render().el);
+        if (matchDates(newEvent)==true) {
+          that.models.push(newEvent);
+          var eventView = new EventView(newEvent);
+          $('#event-list').append(eventView.render().el);
+        }
       });
       that.sortByDate();
     }
