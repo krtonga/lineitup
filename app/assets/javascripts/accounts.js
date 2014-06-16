@@ -4,6 +4,7 @@ $(function() {
   showHide();
 
   $('#signup-link').on('click', function() {
+    $('#login-div').hide();
     $('#signup-div').show();
     return false;
   });
@@ -20,6 +21,7 @@ $(function() {
 
   $('#login-link').on('click', function() {
     $('#login-div').show();
+    $('#signup-div').hide();
     return false;
   });
 
@@ -62,6 +64,7 @@ function logOut() {
       data: {authenticity_token: authenticityToken},
       success: function() {
         console.log('hello');
+        window.location.reload();
       }
     });
     $('#logout-link').hide();
@@ -90,6 +93,7 @@ function signUp(paramObject) {
     data: {authenticity_token: authenticityToken, user: paramObject},
     success: function(data) {
       //console.log(data.email);
+      window.location.reload();
     }
   });
 }
@@ -115,6 +119,7 @@ function loginSession(paramObject) {
     data: paramObject,
     success: function(data) {
       console.log(data);
+      window.location.reload();
     }
   });
 }

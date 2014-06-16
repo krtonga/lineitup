@@ -1,16 +1,11 @@
-
+<span id="this_is_profile"></span>
 
 <a href='' id='logout-link'>Logout</a>
+<%= token_tag %>
 
 <h2><%= current_user.email %></h2>
 <h2>This is your corner</h2>
 
+<%= render "eventdetails" %>
 
-
-<div id="login-div" style="display:none">
-    <%= form_tag sessions_path do %>
-        <%= text_field_tag :email %>
-        <%= password_field_tag :password %>
-        <%= button_tag('Login', {type: 'button', id: 'login-button'}) %>
-    <% end %>
-</div>
+<ul id="user-event-list"></ul>

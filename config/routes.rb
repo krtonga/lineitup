@@ -5,11 +5,14 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create', as: 'users'
 
-  get 'events/profile' => 'events#profile', as: 'profile'
+  #get '/events/profile' => 'events#profile', as: 'profile'
 
-  root 'welcome#index'
+  root 'events#index'
   get '/events' => 'events#index', as: 'event'
   post '/events' => 'events#create'
-  get '/events/show' => 'events#show', as: 'event_list'
+  get '/events/list' => 'events#list', as: 'event_list'
+  get '/events/show' => 'events#show'
+  get '/events/userevents' => 'events#userevents'
+
 
 end
