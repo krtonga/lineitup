@@ -26,6 +26,8 @@ class EventsController < ApplicationController
       query_string = ""
     end
     @filter_string += query_string
+    @start = params[:start_date]
+    @end = params[:end_date]
 
   end
 
