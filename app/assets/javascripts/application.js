@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require account.js
+//= require accounts.js
 //= require turbolinks
 //= require_tree .
 
