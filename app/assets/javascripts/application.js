@@ -15,3 +15,8 @@
 //= require account.js
 //= require turbolinks
 //= require_tree .
+
+
+$(function(){
+  console.log("ground control to major tom");
+})
