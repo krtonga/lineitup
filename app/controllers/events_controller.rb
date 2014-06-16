@@ -20,6 +20,12 @@ class EventsController < ApplicationController
     @user = User.new
     @p = params
     @filter_string = Event.make_category_filter(params)
+    if params[:search_word] != ""
+      query_string = Event.make_search_query(params[:search_word])
+    else
+      query_string = ""
+    end
+
 
   end
 

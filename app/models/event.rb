@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
     return "&filters=category:(" + search_string.chop + ")"
   end
 
-  def self.make_search_query(params)
+  def self.make_search_query(search_word)
 
   end
 
