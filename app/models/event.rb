@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :categories, through: :haps
 
   def self.pullAPI(category_filter)
-    results = HTTParty.get('http://api.nytimes.com/svc/events/v2/listings.json?&filters=category:'+category_filter+'&api-key='+KEY1+'&limit=5000')
+    results = HTTParty.get('http://api.nytimes.com/svc/events/v2/listings.json?'+category_filter+'&api-key='+KEY1+'&limit=5000')
     get_uniq_results = {}
     results["results"].each do |event|
       get_uniq_results[event["event_id"]] = event
@@ -29,7 +29,16 @@ class Event < ActiveRecord::Base
         search_string += category + "+"
       end
     end
-    return "(" + search_string.chop + ")"
+    if search_string == ""
+      return "&filters=category:(-Movies)"
+    else
+      return "&filters=category:(" + search_string.chop + ")"
+    end
+  end
+
+  def self.make_search_query(search_word)
+    search_string = "&query=%22" + search_word.gsub(" ", "+") + "%22"
+    return search_string
   end
 
 end

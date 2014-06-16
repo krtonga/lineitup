@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    auto_login(user)
     default_category = Category.create(name: "All")
     user.categories << default_category
     respond_to do |format|
