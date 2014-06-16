@@ -48,5 +48,7 @@ gem 'pry'
 gem 'gmaps4rails'
 gem 'geocoder'
 
-gem 'rspec-rails', '~> 3.0.0'
 
+gem 'rspec-rails'
+
+gem 'httparty'

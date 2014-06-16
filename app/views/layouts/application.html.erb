@@ -2,22 +2,18 @@
 <html>
 <head>
   <title>LineitupApp</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-    <% if current_user %>
-        <p>Logged in as <%=current_user.email %></p>
-        <%= link_to "Logout", logout_path, method: :delete %>
-    <% else  %>
-        <%= link_to "Signup", signup_path %>
-        <%= link_to "Login", login_path %>
-    <% end %>
 
 
 <%= yield %>
+
 
 </body>
 </html>

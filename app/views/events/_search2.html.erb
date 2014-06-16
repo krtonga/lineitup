@@ -1,0 +1,100 @@
+<div class="container header">
+
+<!--   <div class="two columns right log-in">
+    <p>Log In</p>
+  </div> -->
+
+  <!-- ........................ -->
+
+
+  <div class="container searches">
+
+    <div class="five columns when">
+
+      <div class="question_image left">
+        <%= image_tag "when.png" %>
+      </div>
+      <h4>Discover by <br> Date </h4>
+      <div>
+        <label for="form" class="date-from-label">From</label>
+        <input type="text" class="datepickerFrom" size="30" >
+      </div>
+
+      <label for="to">to</label>
+      <input type="text" class="datepickerTo" size="30"></p>
+    <hr>
+    </div>
+
+    <div class="five columns what">
+      <div class="question_image left">
+        <%= image_tag "what.png" %>
+      </div>
+
+      <%= fields_for "events" do |form| %>
+      <h4>Search by Keyword</h4>
+        <input type="text" placeholder="In the description????">
+
+      <h4>Search by Category</h4>
+        <table class="category">
+          <tr>
+            <td>forChildren</td>
+            <td><%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td>Art</td>
+            <td><%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td>Theater</td>
+            <td> <%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td> Pop </td>
+            <td> <%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td> Comedy </td>
+            <td> <%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td>Dance </td>
+            <td> <%= form.check_box :name %></td>
+          </tr>
+          <tr>
+            <td> Jazz </td>
+            <td> <%= form.check_box :name %> </td>
+          </tr>
+          <tr>
+            <td> Classical </td>
+            <td> <%= form.check_box :name %> </td>
+          </tr>
+          <tr>
+            <td>spareTimes</td>
+            <td><%= form.check_box :name %></td>
+          </tr>
+        </table>
+      <% end %>
+      <br>
+      <hr>
+    </div>
+
+    <div class="five columns where">
+      <div class="question_image left">
+        <%= image_tag "where.png" %>
+      </div>
+      <h4>Find <br>What is <br>Near You!</h4>
+      <form action="/search">
+        <label for="location" class="your-location-label">Use IP:</label>
+        <input type="text" title="We automatically grab the IP address of your local server, throw it into a Geocoding gem, and voila! When you press 'Search' you'll appear on the map!" value= <%= @ip %> >
+      </form>
+      <div class="ip">
+        <br>
+        <h4><em>Or:</em> Write in an address!</h4>
+        <p>Our service automatically displays results w/in <...> miles of where you are.</p>
+      </div>
+      <hr>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,28 @@
+
+
+<% if current_user %>
+    <span class="user-id-span" data-user='<%=current_user.id%>'></span>
+<% else %>
+    <span class="user-id-span" data-user='no_user'></span>
+<% end %>
+
+<a href='' id='logout-link'>Logout</a>
+<a href='' id='signup-link'>Signup</a>
+<a href='' id='login-link'>Login</a>
+
+<div id="login-div" style="display:none">
+    <%= form_tag sessions_path do %>
+        <%= text_field_tag :email %>
+        <%= password_field_tag :password %>
+        <%= button_tag('Login', {type: 'submit', id: 'login-button'}) %>
+    <% end %>
+</div>
+
+<div id="signup-div" style="display:none">
+    <%= form_for @user do |f| %>
+        <%= f.text_field :email %>
+        <%= f.password_field :password %>
+        <%= f.button('Signup', {type: 'submit', id: 'signup-button'}) %>
+    <% end %>
+</div>
+
