@@ -14,6 +14,6 @@ RSpec.describe User, :type => :model do
   end
 
   it "can save individual events" do
-    user.events = Event.new
+    user.events = Event.create
   end
 end

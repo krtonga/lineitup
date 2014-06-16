@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Event, :type => :model do
   before :each do
-    @event = Event.new(name: "Opera Cabal", category: "Classical")
+    @event = Event.new(event_name: "Opera Cabal", category: "Classical")
   end
 
   it "has at least a name and a category" do
