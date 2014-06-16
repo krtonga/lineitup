@@ -38,6 +38,9 @@ class Event < ActiveRecord::Base
   end
 
   def self.make_search_query(search_word)
+    if search_word == nil
+      search_word = ""
+    end
     search_string = "&query=%22" + search_word.gsub(" ", "+") + "%22"
     return search_string
   end
