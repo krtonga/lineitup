@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :haps
   has_many :categories, through: :haps
+  validates_uniqueness_of :event_id
 
   def self.pullAPI(category_filter)
     results = HTTParty.get('http://api.nytimes.com/svc/events/v2/listings.json?'+category_filter+'&api-key='+KEY1+'&limit=5000')
