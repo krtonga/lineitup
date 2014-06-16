@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     else
       query_string = ""
     end
-
+    @filter_string += query_string
 
   end
 

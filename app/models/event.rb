@@ -29,11 +29,16 @@ class Event < ActiveRecord::Base
         search_string += category + "+"
       end
     end
-    return "&filters=category:(" + search_string.chop + ")"
+    if search_string == ""
+      return "&filters=category:(-Movies)"
+    else
+      return "&filters=category:(" + search_string.chop + ")"
+    end
   end
 
   def self.make_search_query(search_word)
-
+    search_string = "&query=%22" + search_word.gsub(" ", "+") + "%22"
+    return search_string
   end
 
 end
