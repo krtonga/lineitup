@@ -30,11 +30,6 @@
   float: left;
 }
 
-.arrow {
-  background-color: #C2CBCD;
-  height: 200px;
-}
-
 .searches {
   margin: 30px;
   padding: 20px;
@@ -42,7 +37,7 @@
   line-height: 1em;
 }
 
-.what, .when, .where {
+.when, .what, .where {
   float: left;
 }
 
