@@ -10,9 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require base
+ *= require layout
+ *= require skeleton
+ *= require jquery-ui-1.10.4.custom.min
  *= require_tree .
  *= require_self
-
  */
 
 .nav {
@@ -70,9 +73,72 @@ td {
   color: grey;
 }
 
-
-
 em {
   color: grey;
 }
+
+.results-map {
+  width: 100%;
+  border: 2px dashed black;
+}
+
+.search-bar {
+  float: left;
+  margin: -30px;
+  border: 1px dotted black;
+}
+
+.saveEvent {
+  margin: 0px;
+  float: right;
+}
+
+.descrip {
+  background-color: lightblue;
+  height: 150px;
+}
+
+.event-descrip {
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.float {
+  height: 75px;
+  margin: 0px 10px 10px 10px;
+  font-variant: small-caps;
+  span {
+    font-size: 2em;
+  }
+}
+
+.explanation {
+  background-color: #FFFFEC;
+  border: 1px black dotted;
+  border-radius: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.eventlist {
+  .nav {
+    background-color: black;
+  }
+  .header {
+    zoom: 0.7;
+    margin-left: -107px;
+  }
+  .searches {
+    margin: 0px;
+    padding: 20px;
+    font-size: 1em;
+    line-height: 1em;
+  }
+  .when, .what, .where {
+    float: none;
+  }
+}
+
 

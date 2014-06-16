@@ -23,3 +23,7 @@
 6/16/14 11:45AM
 - incorporated modified search partial and IP address
 - basic functionality sucessful w/ NYT API
+
+6/16/14 5:31PM
+- stylized list
+- functioning search by date
