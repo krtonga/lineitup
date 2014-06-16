@@ -12,8 +12,8 @@ function matchDates(event) {
   weekday[6] = "sat";
   var start = $('#start_date_for_range').text();
   var end = $('#end_date_for_range').text();
-  range_start = new Date(Date.parse(start));
-  range_end = new Date(Date.parse(end));
+  var range_start = new Date(Date.parse(start));
+  var range_end = new Date(Date.parse(end));
   var dateArray = [];
   if (event.eventDateList != undefined) {
     $.each(event.eventDateList, function(index, date) {
@@ -25,13 +25,26 @@ function matchDates(event) {
       }
     });
   } else {
-
-    for (var d = range_start; d <= range_end; d.setDate(d.getDate() + 1)) {
-      console.log(weekday[d.getDay()], d);
+    var recurStart = new Date(Date.parse(event.startDate));
+    if (event.endDate == undefined) {
+      var recurEnd = new Date(2020, 0, 1);
+    } else {
+      var recurEnd = new Date(Date.parse(event.endDate));
+    }
+    //console.log(recurStart, recurEnd);
+    for (var day = range_start; day <= range_end; day.setDate(day.getDate() + 1)) {
+      if (day >= recurStart && day <= recurEnd) {
+        //console.log(weekday[day.getDay()], day);
+        if ($.inArray(weekday[day.getDay()], event.recurString) != -1) {
+          console.log(day);
+          dateArray.push(day.toString());
+        }
+      }
       //  need to get start recurring and end recurring as dates, check
     }
 
   }
+  console.log(dateArray);
   if (dateArray.length > 0) {
     return true;
   } else {
