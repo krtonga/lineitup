@@ -29,7 +29,7 @@ $(function(){
 
 
       $(document).ready(function(){
-        var ei = $("#eventInfo")
+        var ei = $(".eventInfo")
         var eiPos = ei.position().top;
         var tabPos = $("#tabs").position().top;
         var pos = eiPos + tabPos;

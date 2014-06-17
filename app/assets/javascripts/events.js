@@ -93,7 +93,7 @@ EventView.prototype.render = function() {
   var $eventLi =$('<li>');
   var $link = $('<a>', {
     //text: 'Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString,
-    text: this.model.category + ':  ' + this.model.eventName + this.model.recurString + this.model.startDate + this.model.endDate,
+    html: "<strong>" + this.model.category + '</strong>: <h4> ' + this.model.eventName + "</h4><em>" + this.model.recurString + this.model.startDate + this.model.endDate + "</em>",
     href: '',
     id: this.model.eventID,
     click: function(){
