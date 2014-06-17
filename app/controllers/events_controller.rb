@@ -20,7 +20,8 @@ class EventsController < ApplicationController
 
 
   def list
-    @ip = request.location
+    ip = request.location
+    @ip = ip.to_json
 
     @user = User.new
     @p = params

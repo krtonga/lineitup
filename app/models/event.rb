@@ -45,12 +45,11 @@ def self.make_search_query(search_word)
 end
 
 def self.set_location(location, ip_address)
-  if location == nil || location == ""
+  if location == nil
     ll_string = ""
-  #elsif location == ""
-  #  json_ip = ip_address.to_json
-  #  hash_ip = JSON.parse(json_ip)
-  #  ll_string = hash_ip["data"]["latitude"] + ',' + hash_ip["data"]["longitude"]
+  elsif location == ""
+    hash_ip = JSON.parse(ip_address)
+    ll_string = hash_ip["data"]["latitude"] + ',' + hash_ip["data"]["longitude"]
   else
     lat_long_array = Geocoder.coordinates(location)
     ll_string = lat_long_array[0].to_s + ',' + lat_long_array[1].to_s
