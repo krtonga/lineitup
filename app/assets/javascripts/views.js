@@ -21,7 +21,7 @@ $(function(){
 
   $('#map_tab_for_click').on('click', function() {
     console.log('map clicked!');
-    if ($('.from-where').data("from") == "search") {
+    if ($('#from-where').text() == "search") {
       MapBuild(eventCollection.models);
     } else {
       MapBuild(userEvents.models);

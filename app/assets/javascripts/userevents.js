@@ -34,12 +34,12 @@ $(function () {
   });
   $('#user_tab_for_click').on('click', function() {
     console.log("profile");
-    $('.from-where').attr('data-from', 'user');
+    $('#from-where').text('user');
     userEvents.fetchUserEvents();
   });
   $('#search_tab_for_click').on('click', function() {
     console.log("profile");
-    $('.from-where').attr('data-from', 'search');
+    $('#from-where').text('search');
     userEvents.fetchUserEvents();
   });
 }); // end document ready
