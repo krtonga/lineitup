@@ -64,7 +64,7 @@ end
 
 
 def self.set_radius(radius)
-  radius = radius.to_i * 1600
+  radius = radius.to_f * 1600
   radius.to_s
 end
 end
