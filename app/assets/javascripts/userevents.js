@@ -6,6 +6,7 @@ EventCollection.prototype.fetchUserEvents = function() {
     url: '/events/userevents',
     dataType: 'json',
     success: function(data) {
+      $('#user-event-list').html('');
       $.each(data, function(index, currEvent) {
         var newEvent = new EventModel(currEvent);
         that.models.push(newEvent);
@@ -25,8 +26,15 @@ $(function () {
     console.log("profile");
     userEvents.fetchUserEvents();
   }
+  $('#user-event-details-close').on('click', function() {
+    $('#user-event-details-div').hide();
+  });
   $('#event-details-close').on('click', function() {
     $('#event-details-div').hide();
+  });
+  $('#user_tab_for_click').on('click', function() {
+    console.log("profile");
+    userEvents.fetchUserEvents();
   });
 }); // end document ready
 
@@ -46,7 +54,7 @@ EventView.prototype.renderUserEvents = function() {
   $link.mouseenter(function() {
     timer = setTimeout(function() {
       console.log(that.model.webDescription);
-      displayEventDetails(that.model);
+      displayUserEventDetails(that.model);
     }, 1000);
   }).mouseleave(function() {
     clearTimeout(timer);
@@ -85,5 +93,22 @@ function displayEventDetails(event) {
   $detailsList.append(eventUrl);
   $('#event-details-div').show();
   $('#event-details-close').show();
+
+}
+
+
+
+function displayUserEventDetails(event) {
+  $detailsList = $('#user-event-details-list')
+  $detailsList.html('');
+  var descriptionEl = $('<li>').html(event.webDescription);
+  var eventUrl = $('<a>', {
+                   text: event.eventUrl,
+                   href: event.eventUrl
+                });
+  $detailsList.append(descriptionEl);
+  $detailsList.append(eventUrl);
+  $('#user-event-details-div').show();
+  $('#user-event-details-close').show();
 
 }

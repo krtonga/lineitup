@@ -60,7 +60,7 @@
       <ul>
         <li><a href="#tabs-list">List</a></li>
         <li><a id="map_tab_for_click" href="#tabs-map">Map</a></li>
-        <li><a href="#tabs-list-columns">List2</a></li>
+        <li><a id="user_tab_for_click" href="#tabs-list-columns">List2</a></li>
         <li><a href="#tabs-list-accordian">Accordian</a></li>
       </ul>
 
@@ -82,7 +82,17 @@
 
       </div>
 
+      <div id="tabs-list-columns">
+        <h2>THIS IS YOUR LIST</h2>
+        <p><em>Here's some information about your search...</em></p>
 
+        <div class="four columns left">
+          <ul id="user-event-list"></ul>
+        </div>
+        <div class="container four columns right">
+          <%= render "userdetails" %>
+        </div>
+      </div>
 
 
 
