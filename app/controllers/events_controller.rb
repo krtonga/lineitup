@@ -6,7 +6,8 @@ class EventsController < ApplicationController
 
   def index
     @user = User.new
-    @ip = request.location
+    ip = request.location
+    @ip = ip.to_json
   end
 
   def show
