@@ -45,7 +45,9 @@ def self.make_search_query(search_word)
 end
 
 def self.set_location(location, ip_address)
-  if location == "" || location == nil
+  if location == nil
+    ll_string = ""
+  elsif location == ""
     json_ip = ip_address.to_json
     hash_ip = JSON.parse(json_ip)
     ll_string = hash_ip["data"]["latitude"] + ',' + hash_ip["data"]["longitude"]
