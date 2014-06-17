@@ -54,7 +54,7 @@ def self.set_location(location, ip_address)
     lat_long_array = Geocoder.coordinates(location)
     ll_string = lat_long_array[0].to_s + ',' + lat_long_array[1].to_s
   end
-  location_input = "&ll="+ll_string
+  location_input = "&ll="+ll_string + '&radius=20000'
   if location_input == "&ll="
     return ""
   else
