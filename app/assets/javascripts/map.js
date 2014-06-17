@@ -25,6 +25,6 @@ function createGeoArray(eventArray) {
 
 $(function(){
 
-  MapBuild();
+  //MapBuild();
  });
 

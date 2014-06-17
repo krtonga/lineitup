@@ -59,6 +59,17 @@ EventView.prototype.renderUserEvents = function() {
 
 function clickedUserEvent(id) {
   console.log("delete function?");
+  var authenticityToken = $('input[name=authenticity_token]').val();
+  $.ajax({
+      url: '/events',
+      method: 'delete',
+      dataType: 'json',
+      data: {authenticity_token: authenticityToken, event: {event_id: id}},
+      success: function() {
+        console.log('hello');
+        window.location.reload();
+      }
+    });
 } // end clickedUserEvent
 
 

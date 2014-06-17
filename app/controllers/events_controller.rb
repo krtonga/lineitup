@@ -74,10 +74,21 @@ class EventsController < ApplicationController
   #   redirect_to event_path(event)
   # end
 
-  # def destroy
-  #   event.delete(params[:id])
-  #   redirect_to events_path
-  # end
+  def destroy
+    user = User.find(current_user.id)
+    user_categories = user.categories
+    @p = event_params
+    event = Event.where(event_id: event_params[:event_id]).take
+    user_categories.each do |category|
+      hap = Hap.where(category_id: category.id, event_id: event.id).take
+      Hap.delete(hap.id)
+    end
+    respond_to do |format|
+      format.json {render :json => {message: "hello"}}
+      format.html {redirect_to '/events/userevents'}
+    end
+
+  end
 
   private
   def event_params

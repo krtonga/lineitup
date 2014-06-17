@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/events/list' => 'events#list', as: 'event_list'
   get '/events/show' => 'events#show'
   get '/events/userevents' => 'events#userevents'
+  delete '/events' => 'events#destroy'
 
 
 end
