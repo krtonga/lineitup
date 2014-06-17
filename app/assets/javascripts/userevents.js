@@ -97,7 +97,6 @@ EventView.prototype.renderUserEvents = function() {
     clearTimeout(timer);
   });
   $eventLi.append($link);
-
   this.el = $eventLi;
   return this;
 } // end renderUserEvents
@@ -112,9 +111,11 @@ function clickedUserEvent(id) {
       data: {authenticity_token: authenticityToken, event: {event_id: id}},
       success: function() {
         console.log('hello');
-        window.location.reload();
+        $('#from-where').text('user');
+        userEvents = new EventCollection();
+        userEvents.fetchUserEvents();
       }
-    });
+  });
 } // end clickedUserEvent
 
 
