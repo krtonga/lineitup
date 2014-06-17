@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   #get '/events/profile' => 'events#profile', as: 'profile'
 
-  root 'events#index'
+  root 'events#list'
   #get '/events' => 'events#index', as: 'event'
   post '/events' => 'events#create'
   get '/events/list' => 'events#list', as: 'event_list'

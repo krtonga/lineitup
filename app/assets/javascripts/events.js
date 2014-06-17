@@ -79,6 +79,24 @@ EventCollection.prototype.sortByDate = function() {
 }
 
 
+function dateHtml(event) {
+  date_string = "";
+  if (event.eventDateList != undefined) {
+    $.each(event.recurString, function (index, day) {
+      var as_date = new Date(Date.parse(day)+(60*60*4*1000));
+      day = (as_date.getMonth()+1) + '/' + as_date.getDate();
+      date_string += day + ', ';
+    });
+    return date_string.slice(0,-2);
+  } else {
+    $.each(event.recurString, function (index, day) {
+      date_string += day + ', ';
+    });
+    return date_string.slice(0,-2);
+  }
+
+}
+
 
 
 
@@ -93,8 +111,8 @@ EventView.prototype.render = function() {
   var $eventLi =$('<li>');
   var $link = $('<a>', {
     //text: 'Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString,
-    html: "<strong>" + this.model.category + '</strong>: <h4> ' + this.model.eventName + "</h4> Start Date: <em>" + ";</em> End Date: <em>" + ";</em> Recurring Dates: <em>" + this.model.recurString + "</em>",
-    //html: this.model.eventName,
+    //html: "<strong>" + this.model.category + '</strong>: <h4> ' + this.model.eventName + "</h4> Start Date: <em>" + ";</em> End Date: <em>" + ";</em> Recurring Dates: <em>" + this.model.recurString + "</em>",
+    html: dateHtml(this.model),
     href: '',
     id: this.model.eventID,
     click: function(){
