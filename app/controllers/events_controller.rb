@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.new
-    @ip = request.remote_ip
+    @ip = request.location
   end
 
   def show
@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
 
   def list
+    @ip = request.location
     @user = User.new
     @p = params
     @filter_string = Event.make_category_filter(params)
@@ -25,7 +26,9 @@ class EventsController < ApplicationController
     else
       query_string = ""
     end
+    location_update = Event.set_location(params[:location])
     @filter_string += query_string
+    @filter_string += location_update
     @start = params[:start_date]
     @end = params[:end_date]
 
@@ -51,7 +54,10 @@ class EventsController < ApplicationController
 
 
   def create
-    event = Event.create(event_params)
+    event = Event.where(event_id: event_params["event_id"]).take
+    if event == nil
+      event = Event.create(event_params)
+    end
     default_category = Category.where(user_id: current_user.id, name: 'All').take
     default_category.events << event
     respond_to do |format|
@@ -71,10 +77,21 @@ class EventsController < ApplicationController
   #   redirect_to event_path(event)
   # end
 
-  # def destroy
-  #   event.delete(params[:id])
-  #   redirect_to events_path
-  # end
+  def destroy
+    user = User.find(current_user.id)
+    user_categories = user.categories
+    @p = event_params
+    event = Event.where(event_id: event_params[:event_id]).take
+    user_categories.each do |category|
+      hap = Hap.where(category_id: category.id, event_id: event.id).take
+      Hap.delete(hap.id)
+    end
+    respond_to do |format|
+      format.json {render :json => {message: "hello"}}
+      format.html {redirect_to '/events/userevents'}
+    end
+
+  end
 
   private
   def event_params
@@ -100,5 +117,7 @@ class EventsController < ApplicationController
                                                  :free
                                                  )
   end
+
+
 
 end

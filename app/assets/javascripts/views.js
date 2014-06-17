@@ -18,9 +18,10 @@ $(function(){
         ui.item.children( "h3" ).triggerHandler( "focusout" );
       }
     });
+
+  $('#map_tab_for_click').on('click', function() {
+    console.log('map clicked!');
+    MapBuild();
+  });
 });
-
-
-
-
 
