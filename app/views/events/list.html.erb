@@ -4,7 +4,6 @@
   <span id="filter_string" style="display:visible"><%=@filter_string%></span>
   <span id="start_date_for_range" style="display:visible"><%=@start%></span>
   <span id="end_date_for_range" style="display:visible"><%=@end%></span>
-<%= @p %>
 
   <!--.......................... -->
 
@@ -46,8 +45,10 @@
         <div class="four columns left">
           <ul id="event-list"></ul>
         </div>
-        <div class="container four columns right">
-          <%= render "eventdetails" %>
+        <div class="four columns right">
+          <div id="eventInfo" class="four columns">
+            <%= render "eventdetails" %>
+          </div>
         </div>
       </div>
 

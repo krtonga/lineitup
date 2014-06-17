@@ -28,5 +28,23 @@ $(function(){
     }
 
   });
+
+
 });
+
+
+      $(document).ready(function(){
+        var ei = $("#eventInfo")
+        var eiPos = ei.position().top;
+        var tabPos = $("#tabs").position().top;
+        var pos = eiPos + tabPos;
+        $(window).scroll(function(){
+          var windowpos = $(window).scrollTop() - tabPos;
+          if (windowpos >= pos) {
+            ei.addClass("fixed");
+          } else {
+            ei.removeClass("fixed");
+          }
+        });
+      });
 
