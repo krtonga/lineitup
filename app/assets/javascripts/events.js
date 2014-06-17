@@ -14,12 +14,38 @@ EventModel.prototype.cleanUpDates = function() {
     rawEndDate = $(this.eventDateList).last()[0];
     convertedEndDate = new Date(Date.parse(rawEndDate)+(60*60*4*1000));
     this.endDate = convertedEndDate;
+    //this.eventDateList = this.eventDateList.join(', ');
+    //this.eventDateList = $(this.eventDateList).first();
   } else {
     //console.log(this.recurringEndDate);
     this.startDate = this.recurringStartDate;
     this.endDate = this.recurringEndDate;
     this.recurString = this.recurDays;
   }
+}
+function UserEventModel(data) {
+  this.startDate = data.start_date;
+  this.endDate = data.end_date;
+  this.recurString = data.recurstring;
+  this.eventName = data.event_name;
+  this.eventID = data.event_id;
+  this.eventDateList = data.event_date_list;
+  this.recurringStartDate = data.recurring_start_date;
+  this.recurringEndDate = data.recurring_end_date;
+  this.recurDays = data.recur_days;
+  this.category = data.category;
+  this.eventUrl = data.event_detail_url;
+  this.webDescription = data.web_description;
+  this.venueName = data.venue_name;
+  this.venueDetailUrl = data.venue_detail_url;
+  this.latitude = data.geocode_latitude;
+  this.longitude = data.geocode_longitude;
+  this.address = data.street_address;
+  this.phone = data.telephone;
+  this.venueUrl = data.venue_website;
+  this.free = data.free;
+  //this.cleanUpDates();
+  //console.log(data.event_date_list.join());
 }
 
 
@@ -161,7 +187,7 @@ EventModel.prototype.create = function() {
                                                           category: this.category,
                                                           end_date: this.endDate,
                                                           start_date: this.startDate,
-                                                          recurstring: this.recurString,
+                                                          recurstring: this.recurString.join(', '),
                                                           event_detail_url: this.eventUrl,
                                                           web_description: this.webDescription,
                                                           recurring_start_date: this.recurringStartDate,

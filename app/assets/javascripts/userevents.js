@@ -1,4 +1,31 @@
 
+function userDateHtml(event) {
+  var weekday = new Array(7);
+  weekday[0]=  "sun";
+  weekday[1] = "mon";
+  weekday[2] = "tue";
+  weekday[3] = "wed";
+  weekday[4] = "thu";
+  weekday[5] = "fri";
+  weekday[6] = "sat";
+  recur_array = event.recurString.split(', ');
+  if ($.inArray(recur_array[0], weekday) != -1) {
+    return event.recurString;
+  } else {
+    date_string = "";
+    $.each(recur_array, function (index, day) {
+      var as_date = new Date(Date.parse(day)+(60*60*4*1000));
+      day = (as_date.getMonth()+1) + '/' + as_date.getDate();
+      date_string += day + ', ';
+    });
+    return date_string.slice(0,-2);
+  }
+}
+
+
+
+
+
 
 EventCollection.prototype.fetchUserEvents = function() {
   var that = this;
@@ -8,10 +35,12 @@ EventCollection.prototype.fetchUserEvents = function() {
     success: function(data) {
       $('#user-event-list').html('');
       $.each(data, function(index, currEvent) {
-        var newEvent = new EventModel(currEvent);
-        that.models.push(newEvent);
-        var eventView = new EventView(newEvent);
-        $('#user-event-list').append(eventView.renderUserEvents().el);
+        var newEvent = new UserEventModel(currEvent);
+        if (userMatchDates(newEvent) == true) {
+          that.models.push(newEvent);
+          var eventView = new EventView(newEvent);
+          $('#user-event-list').append(eventView.renderUserEvents().el);
+        }
       });
     }
   });
@@ -35,6 +64,7 @@ $(function () {
   $('#user_tab_for_click').on('click', function() {
     console.log("profile");
     $('#from-where').text('user');
+    userEvents = new EventCollection();
     userEvents.fetchUserEvents();
   });
   $('#search_tab_for_click').on('click', function() {
@@ -48,7 +78,8 @@ $(function () {
 EventView.prototype.renderUserEvents = function() {
   var $eventLi =$('<li>');
   var $link = $('<a>', {
-    text: this.model.category + ':  ' + this.model.eventName,
+    html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + userDateHtml(this.model) + "</em>",
+    //html: this.model.eventName,
     href: '',
     id: this.model.eventID,
     click: function(){
@@ -66,7 +97,6 @@ EventView.prototype.renderUserEvents = function() {
     clearTimeout(timer);
   });
   $eventLi.append($link);
-
   this.el = $eventLi;
   return this;
 } // end renderUserEvents
@@ -81,9 +111,11 @@ function clickedUserEvent(id) {
       data: {authenticity_token: authenticityToken, event: {event_id: id}},
       success: function() {
         console.log('hello');
-        window.location.reload();
+        $('#from-where').text('user');
+        userEvents = new EventCollection();
+        userEvents.fetchUserEvents();
       }
-    });
+  });
 } // end clickedUserEvent
 
 
