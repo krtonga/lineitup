@@ -21,16 +21,24 @@ $(function(){
 
   $('#map_tab_for_click').on('click', function() {
     console.log('map clicked!');
-    if ($('#from-where').text() == "search") {
-      MapBuild(eventCollection.models);
-    } else {
-      MapBuild(userEvents.models);
-    }
-
+    MapBuild();
   });
 
 
 });
+
+
+$(function(){
+      $('.search-bar').delay(200).animate({'marginLeft':'-275px'},200);
+  $('.tab').on('click', function() {
+    if ( $('.search-bar').css('marginLeft') === '-275px' ) {
+      $('.search-bar').animate({'marginLeft':'-2px'},200);
+    } else {
+      $('.search-bar').animate({'marginLeft':'-275px'},200);
+  }});
+});
+
+
 
 
       $(document).ready(function(){
@@ -47,4 +55,5 @@ $(function(){
           }
         });
       });
+
 
