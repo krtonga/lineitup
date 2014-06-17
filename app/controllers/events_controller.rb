@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.new
-    @ip = request.remote_ip
+    @ip = request.location
   end
 
   def show
@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
 
   def list
+    @ip = request.location
     @user = User.new
     @p = params
     @filter_string = Event.make_category_filter(params)
@@ -25,7 +26,9 @@ class EventsController < ApplicationController
     else
       query_string = ""
     end
+    location_update = Event.set_location(params[:location])
     @filter_string += query_string
+    @filter_string += location_update
     @start = params[:start_date]
     @end = params[:end_date]
 
@@ -114,5 +117,7 @@ class EventsController < ApplicationController
                                                  :free
                                                  )
   end
+
+
 
 end
