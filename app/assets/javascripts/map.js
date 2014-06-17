@@ -15,7 +15,7 @@ function createGeoArray(eventArray) {
     var geoObject = {
       "lat": event.latitude,
       "lng": event.longitude,
-      "infowindow": event.eventName
+      "infowindow": event.venueName + event.eventName
       }
     geoArray.push(geoObject);
   });
