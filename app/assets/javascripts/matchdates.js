@@ -16,7 +16,8 @@ function matchDates(event) {
   var range_end = new Date(Date.parse(end));
   var dateArray = [];
   if (event.eventDateList != undefined) {
-    $.each(event.eventDateList, function(index, date) {
+    dates = event.eventDateList;
+    $.each(dates, function(index, date) {
       var asDate = new Date(Date.parse(date)+(60*60*4*1000));
       if (asDate >= range_start && asDate <= range_end) {
         dateArray.push(date);

@@ -9,9 +9,11 @@ EventCollection.prototype.fetchUserEvents = function() {
       $('#user-event-list').html('');
       $.each(data, function(index, currEvent) {
         var newEvent = new EventModel(currEvent);
-        that.models.push(newEvent);
-        var eventView = new EventView(newEvent);
-        $('#user-event-list').append(eventView.renderUserEvents().el);
+        //if (matchDates(newEvent) == true) {
+          that.models.push(newEvent);
+          var eventView = new EventView(newEvent);
+          $('#user-event-list').append(eventView.renderUserEvents().el);
+        //}
       });
     }
   });
@@ -48,7 +50,8 @@ $(function () {
 EventView.prototype.renderUserEvents = function() {
   var $eventLi =$('<li>');
   var $link = $('<a>', {
-    text: this.model.category + ':  ' + this.model.eventName,
+    //html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + dateHtml(this.model) + "</em>",
+    html: this.model.eventName,
     href: '',
     id: this.model.eventID,
     click: function(){

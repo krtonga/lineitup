@@ -14,6 +14,8 @@ EventModel.prototype.cleanUpDates = function() {
     rawEndDate = $(this.eventDateList).last()[0];
     convertedEndDate = new Date(Date.parse(rawEndDate)+(60*60*4*1000));
     this.endDate = convertedEndDate;
+    //this.eventDateList = this.eventDateList.join(', ');
+    //this.eventDateList = $(this.eventDateList).first();
   } else {
     //console.log(this.recurringEndDate);
     this.startDate = this.recurringStartDate;
@@ -161,7 +163,7 @@ EventModel.prototype.create = function() {
                                                           category: this.category,
                                                           end_date: this.endDate,
                                                           start_date: this.startDate,
-                                                          recurstring: this.recurString,
+                                                          recurstring: this.recurString.join(', '),
                                                           event_detail_url: this.eventUrl,
                                                           web_description: this.webDescription,
                                                           recurring_start_date: this.recurringStartDate,
