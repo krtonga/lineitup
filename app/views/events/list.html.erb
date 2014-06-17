@@ -1,10 +1,10 @@
 <div class="eventlist">
 
   <span id="this_is_list"></span>
-  <span id="filter_string" style="display:none"><%=@filter_string%></span>
-  <span id="start_date_for_range" style="display:none"><%=@start%></span>
-  <span id="end_date_for_range" style="display:none"><%=@end%></span>
-
+  <span id="filter_string" style="display:visible"><%=@filter_string%></span>
+  <span id="start_date_for_range" style="display:visible"><%=@start%></span>
+  <span id="end_date_for_range" style="display:visible"><%=@end%></span>
+<%= @p %>
 
   <!--.......................... -->
 
@@ -125,7 +125,7 @@
   <%= render 'account' %>
   <%= token_tag %>
 
-  %= @p %
+
 
 
 </div> #end of wrapper div
