@@ -2,6 +2,8 @@
 class EventsController < ApplicationController
   before_action :require_login, only: [:profile, :create, :userevents]
 
+
+
   def index
     @user = User.new
     @ip = request.location
@@ -18,6 +20,7 @@ class EventsController < ApplicationController
 
   def list
     @ip = request.location
+
     @user = User.new
     @p = params
     @filter_string = Event.make_category_filter(params)
