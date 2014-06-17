@@ -5,15 +5,9 @@ $(function(){
   $(".datepickerTo" ).datepicker();
   $( ".datepickerTo" ).datepicker("setDate", "7" );
   $( document ).tooltip();
-});
+  $( "#tabs" ).tabs();
 
-
-
-  $(function(){
-    $( "#tabs" ).tabs();
-  });
-  $(function(){
-    $( "#accordion" )
+  $( "#accordion" )
     .accordion({
       header: "> div > h3"
     })
@@ -24,5 +18,9 @@ $(function(){
         ui.item.children( "h3" ).triggerHandler( "focusout" );
       }
     });
-  });
+});
+
+
+
+
 
