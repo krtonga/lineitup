@@ -51,7 +51,10 @@ class EventsController < ApplicationController
 
 
   def create
-    event = Event.create(event_params)
+    event = Event.where(event_id: event_params["event_id"]).take
+    if event == nil
+      event = Event.create(event_params)
+    end
     default_category = Category.where(user_id: current_user.id, name: 'All').take
     default_category.events << event
     respond_to do |format|
