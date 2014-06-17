@@ -49,7 +49,6 @@ def self.set_location(location)
     location = ""
   end
   location_input = "&ll="+location
-  # binding.pry
   if location_input == "&ll="
     return ""
   else

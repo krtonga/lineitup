@@ -120,6 +120,9 @@ EventView.prototype.render = function() {
 
 
 function clickedEvent(id) {
+  if ($('.user-id-span').data("user") == "no_user") {
+    window.alert("Please log in to save an event.");
+  }
   $.each(eventCollection.models, function(index, event){
     if (event.eventID == id) {
       //window.alert(event.eventID);
