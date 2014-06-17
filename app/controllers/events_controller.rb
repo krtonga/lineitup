@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     ip = request.location
     @ip = ip.to_json
 
+
     @user = User.new
     @p = params
     @filter_string = Event.make_category_filter(params)
@@ -34,6 +35,8 @@ class EventsController < ApplicationController
     location_update = Event.set_location(params[:location], @ip)
     @filter_string += query_string
     @filter_string += location_update
+    radius_update = Event.set_radius(params[:radius])
+    @filter_string += radius_update
     @start = params[:start_date]
     @end = params[:end_date]
 
