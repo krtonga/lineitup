@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     else
       query_string = ""
     end
-    location_update = Event.set_location(params[:location])
+    location_update = Event.set_location(params[:location], @ip)
     @filter_string += query_string
     @filter_string += location_update
     @start = params[:start_date]
