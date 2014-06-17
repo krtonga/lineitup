@@ -17,8 +17,13 @@
  *= require_tree .
  *= require_self
  */
+
 body {
-  background-color: white;
+  height: 100%;
+}
+
+eventlist {
+  height: 100%;
 }
 
 .nav {
@@ -78,8 +83,6 @@ em {
   padding-left: 10px;
 }
 
-
-
 .search-bar, search-form{
   position: fixed;
   margin: -30px;
@@ -89,11 +92,16 @@ em {
   z-index: 9998;
   background-color: white;
   opacity: .9;
+  height: 120%;
+
   -moz-box-shadow: 0px 10px 10px #000;
     -webkit-box-shadow: 0px 10px 10px #000;
 
   .search-form {
-    overflow: hidden;
+    top: -150px;
+    height: 50%;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   .header {
@@ -111,12 +119,6 @@ em {
     float: none;
   }
 }
-
-.open {
-    .search-bar {
-      margin-left: -2px;
-    }
-  }
 
 .saveEvent {
   margin: 0px;
@@ -150,12 +152,6 @@ em {
   padding-top: 15px;
   padding-left: 15px;
   margin-bottom: 15px;
-}
-
-.eventlist {
-  .nav {
-    background-color: black;
-  }
 }
 
 .bottom {

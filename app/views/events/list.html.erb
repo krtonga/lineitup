@@ -1,3 +1,10 @@
+<div class="eventlist">
+
+  <span id="this_is_list"></span>
+  <span id="filter_string" style="display:none"><%=@filter_string%></span>
+  <span id="start_date_for_range" style="display:none"><%=@start%></span>
+  <span id="end_date_for_range" style="display:none"><%=@end%></span>
+
   <div class="search-bar">
       <div class="tab">
         <p>S<br>E<br>A<br>R<br>C<br>H<br></p>
@@ -5,129 +12,116 @@
       <div class="search-form">
         <%= render "search" %>
       </div>
-
   </div>
 
-    <div class="nav">
+  <div class="nav">
     <a href="/"> Home </a>/ About Us / See All /
     <%= render 'account' %>
     <hr>
   </div>
 
-  <span id="this_is_list"></span>
-  <span id="filter_string" style="display:none"><%=@filter_string%></span>
-  <span id="start_date_for_range" style="display:none"><%=@start%></span>
-  <span id="end_date_for_range" style="display:none"><%=@end%></span>
-
   <!--.......................... -->
-<div class="eventlist">
-<div class="container">
+
+
+  <div class="container">
+
+    <div class="container white">
+
+      <div class="sixteen columns right white">
+        <p>Here's a bit about how this works... Click v. Save and Why you should make an account!</p>
+        <div class="explanation ten columns">
+          <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
+          <p class="float left"><span>hover</span><br> for description</p>
+          <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
+          <p class="float left"><span>click</span><br> to save</p>
+        </div>
+      </div>
+
+      <div id="tabs" class="sixteen columns right">
+        <ul>
+          <li><a id="search_tab_for_click" href="#tabs-list">List</a></li>
+          <li><a id="map_tab_for_click" href="#tabs-map">Map</a></li>
+          <li><a id="user_tab_for_click" href="#tabs-list-columns">SAVED EVENTS</a></li>
+          <li><a href="#tabs-list-accordian">Accordian</a></li>
+        </ul>
+
+        <div id="tabs-list">
+          <h2>SEARCH RESULTS:</h2>
+          <p><em>Here's some information about your <span style="color:blue" title=" SEARCH STRING:<%=@filter_string%> DATES:<%=@start%> - <%=@end%>">search...</span></em><br /></p>
+
+          <div class="four columns left">
+            <ul id="event-list"></ul>
+          </div>
+          <div class="four columns right">
+            <div class="eventInfo four columns">
+              <%= render "eventdetails" %>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabs-map">
+          <h2>THIS IS A MAP!</h2>
+          <%= render "map" %>
+
+        </div>
+
+        <div id="tabs-list-columns">
+          <h2>THIS IS YOUR LIST</h2>
+          <p><em>Here's some information about your search...</em></p>
+
+          <div class="four columns left">
+            <ul id="user-event-list"></ul>
+          </div>
+          <div class="four columns right">
+            <div class="eventInfo four columns">
+              <%= render "userdetails" %>
+            </div>
+          </div>
+        </div>
 
 
 
+        <div id="tabs-list-accordian">
+          <h2>This is a SORTABLE LIST</h2>
+          <div id="accordion">
+            <div class="group">
+              <h3>Date:Event 1<button class="saveEvent ">SAVE</button></h3>
+              <div>
+                <p>description</p>
+                <p>link</p>
+                <p>date info</p>
+              </div>
+            </div>
+            <div class="group">
+              <h3>Date:Event 2<button class="saveEvent">SAVE</button></h3>
+              <div>
+                <p>description</p>
+              </div>
+            </div>
+            <div class="group">
+              <h3>Date:Event 3<button class="saveEvent ">SAVE</button></h3>
+              <div>
+                <p>description</p>
+              </div>
+            </div>
+            <div class="group">
+              <h3>Date:Event 4</h3>
+              <div>
+                <p>description</p>
+              </div>
 
+            </div>
+          </div>
 
-  <div class="container white">
-
-    <div class="sixteen columns right white">
-      <p>Here's a bit about how this works... Click v. Save and Why you should make an account!</p>
-      <div class="explanation ten columns">
-        <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
-        <p class="float left"><span>hover</span><br> for description</p>
-        <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
-        <p class="float left"><span>click</span><br> to save</p>
+        </div>
       </div>
     </div>
 
-    <div id="tabs" class="sixteen columns right">
-      <ul>
-        <li><a id="search_tab_for_click" href="#tabs-list">List</a></li>
-        <li><a id="map_tab_for_click" href="#tabs-map">Map</a></li>
-        <li><a id="user_tab_for_click" href="#tabs-list-columns">SAVED EVENTS</a></li>
-        <li><a href="#tabs-list-accordian">Accordian</a></li>
-      </ul>
 
-      <div id="tabs-list">
-        <h2>SEARCH RESULTS:</h2>
-        <p><em>Here's some information about your <span style="color:blue" title=" SEARCH STRING:<%=@filter_string%> DATES:
-          <%=@start%> - <%=@end%>">search...</span></em><br />
+  </div> # end container
 
-        </p>
-
-
-        <div class="four columns left">
-          <ul id="event-list"></ul>
-        </div>
-        <div class="four columns right">
-          <div class="eventInfo four columns">
-            <%= render "eventdetails" %>
-          </div>
-        </div>
-      </div>
-
-      <div id="tabs-map">
-        <h2>THIS IS A MAP!</h2>
-        <%= render "map" %>
-
-      </div>
-
-      <div id="tabs-list-columns">
-        <h2>THIS IS YOUR LIST</h2>
-        <p><em>Here's some information about your search...</em></p>
-
-        <div class="four columns left">
-          <ul id="user-event-list"></ul>
-        </div>
-        <div class="four columns right">
-          <div class="eventInfo four columns">
-            <%= render "userdetails" %>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div id="tabs-list-accordian">
-        <h2>This is a SORTABLE LIST</h2>
-        <div id="accordion">
-          <div class="group">
-            <h3>Date:Event 1<button class="saveEvent ">SAVE</button></h3>
-            <div>
-              <p>description</p>
-              <p>link</p>
-              <p>date info</p>
-            </div>
-          </div>
-          <div class="group">
-            <h3>Date:Event 2<button class="saveEvent">SAVE</button></h3>
-            <div>
-              <p>description</p>
-            </div>
-          </div>
-          <div class="group">
-            <h3>Date:Event 3<button class="saveEvent ">SAVE</button></h3>
-            <div>
-              <p>description</p>
-            </div>
-          </div>
-          <div class="group">
-            <h3>Date:Event 4</h3>
-            <div>
-              <p>description</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-</div> # end container
-
-  <%= render 'account' %>
-  <%= token_tag %>
+    <%= render 'account' %>
+    <%= token_tag %>
 
 
 
