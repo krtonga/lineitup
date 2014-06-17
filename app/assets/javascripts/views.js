@@ -19,10 +19,16 @@ $(function(){
       }
     });
 
-  $('#map_tab_for_click').on('click', function() {
-    console.log('map clicked!');
-    MapBuild();
+    $('#map_tab_for_click').on('click', function() {
+      console.log('map clicked!');
+      if ($('#from-where').text() == "search") {
+        MapBuild(eventCollection.models);
+      } else {
+        MapBuild(userEvents.models);
+      }
+
   });
+
 
 
 });

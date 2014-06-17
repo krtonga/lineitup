@@ -213,7 +213,7 @@ EventModel.prototype.create = function() {
 var eventCollection = new EventCollection();
 
 $(function () {
-  if ($('span')[0].id == "this_is_list") {
+  //if ($('span')[0].id == "this_is_list") {
     eventCollection.fetch();
-  }
+  //}
 });
