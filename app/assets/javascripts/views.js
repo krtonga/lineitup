@@ -21,7 +21,12 @@ $(function(){
 
   $('#map_tab_for_click').on('click', function() {
     console.log('map clicked!');
-    MapBuild();
+    if ($('.from-where').data("from") == "search") {
+      MapBuild(eventCollection.models);
+    } else {
+      MapBuild(userEvents.models);
+    }
+
   });
 });
 
