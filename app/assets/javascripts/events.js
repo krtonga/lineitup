@@ -166,15 +166,18 @@ EventView.prototype.render = function() {
 
 function clickedEvent(id) {
   if ($('.user-id-span').data("user") == "no_user") {
-    window.alert("Please log in to save an event.");
+    $('#login_alert').show();
+  } else {
+    $.each(eventCollection.models, function(index, event){
+      if (event.eventID == id) {
+        //window.alert(event.eventID);
+        //console.log(event);
+        event.create();
+        $('#saved_alert').text('Saving ' + event.eventName);
+        $('#saved_alert').show();
+      }
+    });
   }
-  $.each(eventCollection.models, function(index, event){
-    if (event.eventID == id) {
-      //window.alert(event.eventID);
-      //console.log(event);
-      event.create();
-    }
-  });
 }
 
 EventModel.prototype.create = function() {
@@ -214,6 +217,13 @@ var eventCollection = new EventCollection();
 
 $(function () {
   //if ($('span')[0].id == "this_is_list") {
+    if ($('.user-id-span').data("user") == "no_user") {
+      $('#user_tab_for_click').hide();
+    } else {
+      $('#user_tab_for_click').show();
+      $('#login_alert').hide();
+    }
+
     eventCollection.fetch();
   //}
 });
