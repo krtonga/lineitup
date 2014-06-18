@@ -58,6 +58,11 @@ $(function () {
   $('#user-event-details-close').on('click', function() {
     $('#user-event-details-div').hide();
   });
+  $('#user-event-details-delete').on('click', function() {
+    $('#user-event-details-div').hide();
+    clickedUserEvent($('#event_id_hide').text());
+
+  });
   $('#event-details-close').on('click', function() {
     $('#event-details-div').hide();
   });
@@ -77,13 +82,14 @@ $(function () {
 
 EventView.prototype.renderUserEvents = function() {
   var $eventLi =$('<li>');
+  var that = this;
   var $link = $('<a>', {
     html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + userDateHtml(this.model) + "</em>",
     //html: this.model.eventName,
     href: '',
     id: this.model.eventID,
     click: function(){
-      clickedUserEvent(this.id);
+      displayUserEventDetails(that.model);
       return false;
     }
   });
@@ -161,5 +167,6 @@ function displayUserEventDetails(event) {
   $detailsList.append(eventUrl);
   $('#user-event-details-div').show();
   $('#user-event-details-close').show();
-
+  $('#user-event-details-delete').show();
+  $('#event_id_hide').text(event.eventID);
 }
