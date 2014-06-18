@@ -27,11 +27,14 @@ eventlist {
 }
 
 .nav {
-  text-align: center;
+  text-align: right;
   font-family: Copperplate;
   font-size: 2em;
+  padding-top: 22px;
+  padding-right: 30px;
   background-color: black;
   color: white;
+  height: 52px;
   margin: 0 50 0 50;
   a {
     color: white;
@@ -259,6 +262,7 @@ em {
 
 .logo {
   position: relative;
+  display: none;
   top: -100px;
   height: 0px;
 }
@@ -271,3 +275,10 @@ em {
   width: 100px;
 
 }
+
+#signup-link, #login-link, #logout-link {
+  text-decoration: none;
+}
+
+
+

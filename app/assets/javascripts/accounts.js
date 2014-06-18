@@ -5,7 +5,8 @@ $(function() {
 
   $('#signup-link').on('click', function() {
     $('#login-div').hide();
-    $('#signup-div').show();
+    //$('#signup-div').show();
+    $('#signup-div').dialog();
     return false;
   });
 
@@ -20,7 +21,7 @@ $(function() {
   });
 
   $('#login-link').on('click', function() {
-    $('#login-div').show();
+    $('#login-div').dialog();
     $('#signup-div').hide();
     return false;
   });

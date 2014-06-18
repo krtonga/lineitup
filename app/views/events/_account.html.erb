@@ -6,21 +6,25 @@
     <span class="user-id-span" data-user='no_user'></span>
 <% end %>
 
-<a href='' id='logout-link'>Logout</a>
-<a href='' id='signup-link'>Signup</a>
-<a href='' id='login-link'>Login</a>
+<a href='' class="account_stuff" id='logout-link'>Logout</a>
+<a href='' class="account_stuff" id='signup-link'>Signup&nbsp&nbsp/&nbsp&nbsp</a>
+<a href='' class="account_stuff" id='login-link'>Login</a>
 
-<div id="login-div" style="display:none">
+<div id="login-div" title="Login" style="display:none">
     <%= form_tag sessions_path do %>
+        <%= label_tag "Username" %>
         <%= text_field_tag :email %>
+        <%= label_tag "Password" %>
         <%= password_field_tag :password %>
         <%= button_tag('Login', {type: 'submit', id: 'login-button'}) %>
     <% end %>
 </div>
 
-<div id="signup-div" style="display:none">
+<div id="signup-div" title="Sign up" style="display:none">
     <%= form_for @user do |f| %>
+        <%= label_tag "Username" %>
         <%= f.text_field :email %>
+        <%= label_tag "Password" %>
         <%= f.password_field :password %>
         <%= f.button('Signup', {type: 'submit', id: 'signup-button'}) %>
     <% end %>
