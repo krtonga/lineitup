@@ -158,6 +158,8 @@ function clickedEvent(id) {
         event.create();
         $('#saved_alert').text('Saved ' + event.eventName);
         $('#saved_alert').show();
+        $('#saved_from_map').text('Saved ' + event.eventName);
+        $('#saved_from_map').show();
       }
     });
   }

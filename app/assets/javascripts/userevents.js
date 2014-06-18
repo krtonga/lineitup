@@ -160,4 +160,5 @@ function displayUserEventDetails(event) {
   $('#user-event-details-close').show();
   $('#user-event-details-delete').show();
   $('#event_id_hide').text(event.eventID);
+  $('.eventInfo').css("visibility", "visible");
 }
