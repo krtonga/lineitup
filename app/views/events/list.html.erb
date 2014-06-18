@@ -20,6 +20,10 @@
     <hr>
   </div>
 
+  <div class="help">
+    <p>I'M <br /> NEW</p>
+  </div>
+
   <!--.......................... -->
 
 
@@ -28,21 +32,13 @@
     <div class="container white">
 
 <!--       <div class="sixteen columns right white">
-        <p>Here's a bit about how this works... Click v. Save and Why you should make an account!</p>
-        <div class="explanation ten columns">
-          <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
-          <p class="float left"><span>hover</span><br> for description</p>
-          <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
-          <p class="float left"><span>click</span><br> to save</p>
-        </div>
-      </div> -->
+         -->
 
       <div id="tabs" class="sixteen columns right">
         <ul>
           <li><a id="search_tab_for_click" href="#tabs-list">List</a></li>
-          <li><a id="map_tab_for_click" href="#tabs-map">Map</a></li>
-          <li><a id="user_tab_for_click" href="#tabs-list-columns">SAVED EVENTS</a></li>
-          <li><a href="#tabs-list-accordian">Accordian</a></li>
+          <li title="Come directly from 'List' - we show all search results... Come from your 'SAVED EVENTS' - we map those instead!"><a id="map_tab_for_click" href="#tabs-map" >Map</a></li>
+          <li class='saved-events-tab'><a id="user_tab_for_click" href="#tabs-list-columns" >SAVED EVENTS</a></li>
         </ul>
 
 <!-- ------------------------------------- -->
@@ -57,10 +53,15 @@
           <div class="eight columns right">
             <div class="eventInfo eight columns right">
                 <%= render "eventdetails" %>
-              </div>
+                <div class="explanation eight columns">
+                <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
+                <p class="float left"><span>hover</span><br /> over Event for<br /> description</p>
+                <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
+                <p class="float left"><span>click</span><br />on Event<br /> to <strong>SAVE</strong></p>
             </div>
-
+          </div>
         </div>
+      </div>
 
 <!-- ------------------------------------- -->
 
