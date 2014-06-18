@@ -1,9 +1,9 @@
 <div class="container header">
 
 <%= form_tag('/events/list', method: :get) do %>
-<div class="search_submit">
-  <%= submit_tag(value="Search") %>
-</div>
+  <%= submit_tag("Submit", :class => "search_submit", :name=>"submit") %>
+
+
   <div class="container searches">
 
     <div class="five columns when">
@@ -35,7 +35,7 @@
         <p><em>Search for results w/in <br /><input type="text" name="radius" class="radius" value="5"> miles of where you are.</em></p>
       </div>
       <hr>
-    </div> to here
+    </div>
 
     <div class="five columns what">
       <div class="question_image left">
