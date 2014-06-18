@@ -146,19 +146,50 @@ function displayEventDetails(event) {
 
 
 
+// function displayUserEventDetails(event) {
+//   $detailsList = $('#user-event-details-list')
+//   $detailsList.html('');
+//   var descriptionEl = $('<li>').html(event.webDescription);
+//   var eventUrl = $('<a>', {
+//                    text: event.eventUrl,
+//                    href: event.eventUrl
+//                 });
+//   $detailsList.append(descriptionEl);
+//   $detailsList.append(eventUrl);
+//   $('#user-event-details-div').show();
+//   $('#user-event-details-close').show();
+//   $('#user-event-details-delete').show();
+//   $('#event_id_hide').text(event.eventID);
+//   $('.eventInfo').css("visibility", "visible");
+// }
+
 function displayUserEventDetails(event) {
-  $detailsList = $('#user-event-details-list')
+  $titleDiv = $('.user-el-title');
+  $detailsList = $('#user-event-details-list');
+  $venueList = $('#user-venue-list');
+  $titleDiv.html('');
   $detailsList.html('');
+  $venueList.html('');
+  var name = $('<h4>').html(event.eventName);
   var descriptionEl = $('<li>').html(event.webDescription);
   var eventUrl = $('<a>', {
                    text: event.eventUrl,
                    href: event.eventUrl
                 });
+  var venueUrl = $('<a>', {
+                   text: event.venueName,
+                   href: event.venueDetailUrl
+                });
+  var address = $('<p>').html('<em>' + event.address + '</em>')
+  $titleDiv.append(name);
   $detailsList.append(descriptionEl);
   $detailsList.append(eventUrl);
+  $venueList.append(venueUrl).append(address);
+
   $('#user-event-details-div').show();
   $('#user-event-details-close').show();
   $('#user-event-details-delete').show();
   $('#event_id_hide').text(event.eventID);
   $('.eventInfo').css("visibility", "visible");
+
 }
