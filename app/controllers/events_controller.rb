@@ -47,7 +47,12 @@ class EventsController < ApplicationController
 
   def userevents
     curr_user = User.find(current_user.id)
-    results = curr_user.events
+
+    resultsJson = curr_user.events.to_json
+    resultsJson = JSON.parse(resultsJson)
+    results = resultsJson.reverse
+
+
     #@test = results[1]
     respond_to do |format|
       format.html {render :profile}
@@ -104,26 +109,26 @@ class EventsController < ApplicationController
   private
   def event_params
     event_params = params.require(:event).permit(:event_name,
-                                                 :category,
-                                                 :end_date,
-                                                 :start_date,
-                                                 :recurstring,
-                                                 :event_detail_url,
-                                                 :web_description,
-                                                 :recurring_start_date,
-                                                 :recurring_end_date,
-                                                 :recur_days,
-                                                 :venue_name,
-                                                 :venue_detail_url,
-                                                 :geocode_latitude,
-                                                 :geocode_longitude,
-                                                 :street_address,
-                                                 :telephone,
-                                                 :venue_website,
-                                                 :event_date_list,
-                                                 :event_id,
-                                                 :free
-                                                 )
+     :category,
+     :end_date,
+     :start_date,
+     :recurstring,
+     :event_detail_url,
+     :web_description,
+     :recurring_start_date,
+     :recurring_end_date,
+     :recur_days,
+     :venue_name,
+     :venue_detail_url,
+     :geocode_latitude,
+     :geocode_longitude,
+     :street_address,
+     :telephone,
+     :venue_website,
+     :event_date_list,
+     :event_id,
+     :free
+     )
   end
 
 
