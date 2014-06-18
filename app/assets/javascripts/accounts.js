@@ -25,6 +25,13 @@ $(function() {
     return false;
   });
 
+  $('#login_alert').on('click', function() {
+    $('#login-div').dialog();
+    $('#signup-div').hide();
+    return false;
+  });
+
+
   $('#logout-link').on('click', function() {
     var authenticityToken = $('input[name=authenticity_token]').val();
     logOut();

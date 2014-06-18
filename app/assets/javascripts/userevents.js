@@ -140,6 +140,7 @@ function displayEventDetails(event) {
 
   $('#event-details-div').show();
   $('#event-details-close').show();
+  $('.eventInfo').css("visibility", "visible");
 
 }
 
