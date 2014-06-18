@@ -281,9 +281,9 @@ em {
   text-decoration: none;
 }
 
-#map {
-  infowindow {
-  background-color: black;
-  }
+.gm-style-iw{
+  overflow: scroll;
+  width: 170px;
+  height: 200px;
 }
 
