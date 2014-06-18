@@ -165,17 +165,19 @@ em {
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-
   .eventInfo {
     background-color: white;
     padding: 15px;
     border-top: 1px dotted black;
     border-bottom: 1px dotted black;
     position: fixed;
-    top: 30px;
+    bottom: 30px;
     float: right;
     border-radius: 5px;
-  }
+    opacity: .9;
+    overflow-x: scroll;
+    height: 100%;
+}
   .header {
     zoom: 1;
   }
@@ -238,6 +240,12 @@ em {
     border-bottom: 1px dotted black;
   }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .innerworkings { border-top: 1px dashed black; }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
 
 .bottom {
   background-color: black
