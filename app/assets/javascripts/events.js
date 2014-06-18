@@ -1,12 +1,7 @@
 
 EventModel.prototype.cleanUpDates = function() {
-  //console.log(this.recurDays);
   this.startDate = "hello" + this.eventName;
-  // below is useful
-  //y = new Date(Date.parse(x))
-  //z=new Date(Date.parse(x)+(60*60*4*1000))
   if (this.eventDateList != undefined) {
-    //console.log(this.eventDateList);
     this.recurString = this.eventDateList;
     rawStartDate = $(this.eventDateList).first()[0];
     convertedStartDate = new Date(Date.parse(rawStartDate)+(60*60*4*1000));
@@ -14,10 +9,7 @@ EventModel.prototype.cleanUpDates = function() {
     rawEndDate = $(this.eventDateList).last()[0];
     convertedEndDate = new Date(Date.parse(rawEndDate)+(60*60*4*1000));
     this.endDate = convertedEndDate;
-    //this.eventDateList = this.eventDateList.join(', ');
-    //this.eventDateList = $(this.eventDateList).first();
   } else {
-    //console.log(this.recurringEndDate);
     this.startDate = this.recurringStartDate;
     this.endDate = this.recurringEndDate;
     this.recurString = this.recurDays;
@@ -44,8 +36,6 @@ function UserEventModel(data) {
   this.phone = data.telephone;
   this.venueUrl = data.venue_website;
   this.free = data.free;
-  //this.cleanUpDates();
-  //console.log(data.event_date_list.join());
 }
 
 
@@ -71,7 +61,6 @@ function EventModel(data) {
   this.venueUrl = data.venue_website;
   this.free = data.free;
   this.cleanUpDates();
-  //console.log(data.event_date_list.join());
 }
 
 function EventCollection() {
@@ -93,15 +82,12 @@ EventCollection.prototype.fetch = function() {
           $('#event-list').append(eventView.render().el);
         }
       });
-      that.sortByDate();
     }
   });
 
 }
 
 EventCollection.prototype.sortByDate = function() {
-  //return this.sort();
-  //sorted = eventCollection.models.sort(function(a, b){return a.startDate - b.startDate});
 }
 
 
@@ -133,11 +119,8 @@ function EventView(eventModel) {
 }
 
 EventView.prototype.render = function() {
-  //var $eventLi = $('<li>').text('Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString);
   var $eventLi =$('<li>');
   var $link = $('<a>', {
-    //text: 'Start:'+this.model.startDate + '  End:' + this.model.endDate + '  Recur:' + this.model.recurString,
-    //html: "<strong>" + this.model.category + '</strong>: <h4> ' + this.model.eventName + "</h4> Start Date: <em>" + ";</em> End Date: <em>" + ";</em> Recurring Dates: <em>" + this.model.recurString + "</em>",
     html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + dateHtml(this.model) + "</em>",
     href: '',
     id: this.model.eventID,
@@ -149,11 +132,9 @@ EventView.prototype.render = function() {
   var that = this;
   $link.mouseenter(function() {
     timer = setTimeout(function() {
-      console.log(that.model.webDescription);
       displayEventDetails(that.model);
     }, 1000);
 
-    //console.log(that.model.eventID);
   }).mouseleave(function() {
     clearTimeout(timer);
   });
@@ -170,8 +151,6 @@ function clickedEvent(id) {
   } else {
     $.each(eventCollection.models, function(index, event){
       if (event.eventID == id) {
-        //window.alert(event.eventID);
-        //console.log(event);
         event.create();
         $('#saved_alert').text('Saving ' + event.eventName);
         $('#saved_alert').show();
@@ -208,7 +187,6 @@ EventModel.prototype.create = function() {
                                                           free: this.free
                                                         }},
     success: function(data) {
-      console.log(data);
     }
   });
 }
@@ -216,7 +194,6 @@ EventModel.prototype.create = function() {
 var eventCollection = new EventCollection();
 
 $(function () {
-  //if ($('span')[0].id == "this_is_list") {
     if ($('.user-id-span').data("user") == "no_user") {
       $('#user_tab_for_click').hide();
     } else {
@@ -225,5 +202,4 @@ $(function () {
     }
 
     eventCollection.fetch();
-  //}
 });

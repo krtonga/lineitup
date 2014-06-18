@@ -26,8 +26,14 @@ function createGeoArray(eventArray) {
 }
 
 $(function(){
-  $(".mapbutton").on("click", function(){
-    console.log("hello");
+
+
+  $(document).on('mousedown', function(e) {
+    //console.log("yo");
+    $(".mapbutton").on("click", function(){
+    clickedEvent($('.mapbutton').val());
   });
+});
+
 });
 
