@@ -49,7 +49,15 @@
           <%= render "introchart" %>
         </div>
 
-        <p id="pretty_result_string" style="display:none">This is where our resutls go</p>
+ <div class="display_results">
+        <p id="pretty_result_string" style="display:none"> These are your results with the following parameters:</p> <p> <%=@search_word %> </p>
+        <p> <%= @location %> </p>
+        <p><%= @radius %> </p>
+        <p><%= @starting %>
+        <p><%= @ending %>  </p>
+      </div>
+
+
         <div class="four columns left">
           <ul id="event-list"></ul>
         </div>

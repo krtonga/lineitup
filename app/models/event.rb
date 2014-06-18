@@ -63,6 +63,7 @@ def self.set_location(location, ip_address)
 end
 
 
+
 def self.set_radius(radius)
   radius = radius.to_f * 1600
   radius.to_s

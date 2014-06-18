@@ -40,6 +40,22 @@ class EventsController < ApplicationController
     @start = params[:start_date]
     @end = params[:end_date]
 
+    if params[:search_word] != ""
+      @search_word = "Keyword: " + params[:search_word]
+    end
+    if params[:start_date] != ""
+      @starting = "Starting Date: " + params[:start_date]
+    end
+    if params[:end_date] != ""
+      @ending = "Ending Date: " + params[:end_date]
+    end
+    if params[:location] != ""
+      @location = "Starting Point: " + params[:location]
+    end
+    if params[:radius] != ""
+      @radius = "Radius " + params[:radius] + " miles"
+    end
+
   end
 
   # def new
