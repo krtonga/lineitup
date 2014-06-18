@@ -15,7 +15,7 @@ function createGeoArray(eventArray) {
     var geoObject = {
       "lat": event.latitude,
       "lng": event.longitude,
-      "infowindow": event.venueName + ": <strong>" + event.eventName + "</strong>:  Address: <em>" + event.address +  "</em> : <a href=" + event.eventUrl + ">URL</a>" + "<em> " + event.webDescription + "</em></p>" + "<p>Free: <em>" + event.free +  "</em></p>"+ "<p>Dates: " + event.eventDateList + "</p>"
+      "infowindow": event.venueName + ": <strong>" + event.eventName + "</strong>:  Address: <em>" + event.address +  "</em> : <a href=" + event.eventUrl + ">More Info</a>" + "<em> " + event.webDescription + "</em>" + "Free: <em>" + event.free +  "</em> Dates: " + event.eventDateList
       }
 
     geoArray.push(geoObject);
