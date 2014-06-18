@@ -27,7 +27,7 @@
 
     <div class="container white">
 
-      <div class="sixteen columns right white">
+<!--       <div class="sixteen columns right white">
         <p>Here's a bit about how this works... Click v. Save and Why you should make an account!</p>
         <div class="explanation ten columns">
           <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
@@ -35,7 +35,7 @@
           <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
           <p class="float left"><span>click</span><br> to save</p>
         </div>
-      </div>
+      </div> -->
 
       <div id="tabs" class="sixteen columns right">
         <ul>
@@ -52,8 +52,8 @@
           <div class="four columns left">
             <ul id="event-list"></ul>
           </div>
-          <div class="four columns right">
-            <div class="eventInfo four columns">
+          <div class="eight columns right">
+            <div class="eventInfo eight columns">
               <%= render "eventdetails" %>
             </div>
           </div>
@@ -61,6 +61,7 @@
 
         <div id="tabs-map">
           <h2>THIS IS A MAP!</h2>
+
           <%= render "map" %>
 
         </div>
@@ -77,42 +78,6 @@
               <%= render "userdetails" %>
             </div>
           </div>
-        </div>
-
-
-
-        <div id="tabs-list-accordian">
-          <h2>This is a SORTABLE LIST</h2>
-          <div id="accordion">
-            <div class="group">
-              <h3>Date:Event 1<button class="saveEvent ">SAVE</button></h3>
-              <div>
-                <p>description</p>
-                <p>link</p>
-                <p>date info</p>
-              </div>
-            </div>
-            <div class="group">
-              <h3>Date:Event 2<button class="saveEvent">SAVE</button></h3>
-              <div>
-                <p>description</p>
-              </div>
-            </div>
-            <div class="group">
-              <h3>Date:Event 3<button class="saveEvent ">SAVE</button></h3>
-              <div>
-                <p>description</p>
-              </div>
-            </div>
-            <div class="group">
-              <h3>Date:Event 4</h3>
-              <div>
-                <p>description</p>
-              </div>
-
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

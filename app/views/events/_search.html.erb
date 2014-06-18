@@ -8,7 +8,8 @@
       <div class="question_image left">
         <%= image_tag "when.png" %>
       </div>
-      <h4>Discover<br> by<br> Date </h4>
+      <h4>Discover<br> by Date </h4>
+      <br />
       <div>
         <label for="form">From</label>
         <input id="user_start_date" type="text" name="start_date" class="datepickerFrom" size="30" ></p>
@@ -73,9 +74,9 @@
       <div class="question_image left">
         <%= image_tag "where.png" %>
       </div>
-      <h4>Find <br>What is <br>Near You!</h4>
-        <label for="location">Find by IP:</label>
-        <input type="text" name="location" title="We automatically grab the IP address of your local server, throw it into a Geocoding gem, and voila! There you are on the map!" value="">
+      <h4>Find <br>What is <br>Near You!</h4><br />
+        <label for="location">Find by IP or ADDRESS:</label>
+        <input type="text" name="location" title="We automatically grab the IP address of your local server, and throw it into a Geocoding gem, but unfortunatbly IP addresses are commonly unreliable. Feel free to write in your an address manually to find events near you." value="">
       <div class="ip">
         <br>
         <h4><em>Or:</em> Write in an address!</h4>
