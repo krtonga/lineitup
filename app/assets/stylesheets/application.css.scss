@@ -168,15 +168,19 @@ em {
   .eventInfo {
     background-color: white;
     padding: 15px;
-    border-top: 1px dotted black;
+    border-top: 3px solid black;
+    border-radius: 45px;
     border-bottom: 1px dotted black;
     position: fixed;
-    bottom: 30px;
-    float: right;
+    height: 50%;
+    overflow-x: scroll;
+    bottom: 50px;
+    right: -20px;
     border-radius: 5px;
     opacity: .9;
-    overflow-x: scroll;
-    height: 100%;
+  -moz-box-shadow: 0px 10px 10px #000;
+    -webkit-box-shadow: 0px 10px 10px #000;
+
 }
   .header {
     zoom: 1;
