@@ -16,7 +16,7 @@ function createGeoArray(eventArray) {
       "lat": event.latitude,
       "lng": event.longitude,
 
-      "infowindow": event.venueName + ": <strong>" + event.eventName + "</strong>:" +  "<p>Address:" + event.address +  "</p>" + "<a href=" + event.eventUrl + ">More Info</a>" + "<p>" + "Free: <em>" + event.free + "</p>" +  "</em> Dates: " + event.eventDateList + "<p> " + event.webDescription + "</p>" + "<button class=mapbutton type=button value=" + event.eventID +">Save Event</button>"
+      "infowindow": buttonOrNot(event) + "</br>" + event.venueName + ": <strong>" + event.eventName + "</strong>:" +  "<p>Address:" + event.address +  "</p>" + "<a href=" + event.eventUrl + ">More Info</a>" + "<p>" + "Free: <em>" + event.free + "</p>" +  "</em> Dates: " + mapDates(event) + "<p> " + event.webDescription + "</p>"
     }
 
     geoArray.push(geoObject);
@@ -37,3 +37,18 @@ $(function(){
 
 });
 
+function mapDates(event) {
+  if ($('#from-where').text() == "search") {
+    return dateHtml(event);
+  } else {
+    return userDateHtml(event);
+  }
+}
+
+function buttonOrNot(event) {
+  if ($('#from-where').text() == "search") {
+    return "<button class=mapbutton type=button value=" + event.eventID +">Save Event</button>";
+  } else {
+    return "";
+  }
+}
