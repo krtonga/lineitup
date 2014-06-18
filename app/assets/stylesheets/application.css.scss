@@ -194,6 +194,18 @@ em {
   }
 }
 
+.intro-pg {
+  margin: 10px;
+  font-size: 1.1em;
+}
+
+.intro-text {
+  margin: 20px;
+  font-size: 1.5em;
+  line-height: 1em;
+  font-family: copperplate;
+}
+
 .explanation {
   background-color: #FFFFEC;
   border: 1px black dotted;
@@ -201,6 +213,30 @@ em {
   padding-top: 15px;
   padding-left: 15px;
   margin-bottom: 15px;
+  overflow: hidden;
+}
+  .innerworkings {
+    background-color: white;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+    padding: 15px;
+    margin: -15px;
+  }
+
+.search-icon {
+  padding: 25px;
+  border-radius: 100px 5px 5px 100px;
+}
+
+.list-icon {
+  border-radius: 30px 5px 30px;
+}
+
+.map-icon {
+  border-radius: 5px 30px 5px;
+  .innerworkings {
+    border-bottom: 1px dotted black;
+  }
 }
 
 .bottom {

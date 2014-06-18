@@ -17,12 +17,11 @@
 
 
   <div class="nav">
-
     <%= render 'account' %>
   </div>
 
   <div class="logo">
-  ``<%= image_tag "logo1.png" %>
+    <%= image_tag "logo1.png" %>
   </div>
 
   <div class="help">
@@ -33,9 +32,7 @@
 
 
   <div class="container">
-
     <div class="container white">
-
 
 
       <div id="tabs" class="sixteen columns right">
@@ -48,26 +45,58 @@
 <!-- ------------------------------------- -->
 
         <div id="tabs-list" class="container">
-          <h2>SEARCH RESULTS:</h2>
-          <p><em>Here's some information about your <span style="color:blue" title=" SEARCH STRING:<%=@filter_string%> DATES:<%=@start%> - <%=@end%>">search...</span></em><br /></p>
 
-          <div class="four columns left">
-            <ul id="event-list"></ul>
+        <div class="intro-pg">
+          <div class="intro-text">
+            <p><em>Find events.<br />
+            ... Near you.<br />
+            ... For today, or for tomorrow.</em></p>
           </div>
-          <div class="eight columns right">
+
+          <div class="explanation two columns search-icon">
+            <%= image_tag("search.gif", :class => "float left") %>
+            <p class="float left"><span>Search</span><br /> for Events</p>
+          </div>
+
+          <div class="explanation list-icon eleven columns">
+            <img class="float left" src="http://png-3.findicons.com/files/icons/1579/devine/256/list.png" alt="">
+            <p class="float left"><em>If you...</em><br />SEE A<br /><span>List</span></p>
+
+            <div class="innerworkings columns">
+              <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
+              <p class="float left"><span>hover</span><br /> over Event for<br /> description</p>
+
+              <h1 class="float left"> +</h1>
+
+              <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
+              <p class="float left"><span>click</span><br />on Event<br /> to <strong>SAVE</strong></p>
+            </div>
+          </div>
+
+          <div class="explanation map-icon eleven columns">
+            <%= image_tag("map.png", :class => "float left") %>
+            <p class="float left"><em>Or...</em><br />SEE A<br /><span>Map</span></p>
+
+            <div class="innerworkings columns">
+              <h2><em>+ Start planning your day</em></h2>
+            </div>
+          </div>
+        <hr>
+
+        </div>
+
+
+        <div class="four columns left">
+          <ul id="event-list"></ul>
+        </div>
+        <div class="eight columns right">
             <div class="eventInfo eight columns right">
                 <%= render "eventdetails" %>
-              <div class="explanation eight columns">
-                <img class="float left" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-2/100/levitation-512.png" alt="">
-                <p class="float left"><span>hover</span><br /> over Event for<br /> description</p>
-                <img src="http://perceptionmgmt.net/wp-content/uploads/2014/01/click-icon.png" alt="" class="float left">
-                <p class="float left"><span>click</span><br />on Event<br /> to <strong>SAVE</strong></p>
-              </div>
             </div>
           </div>
         </div>
 
-<!-- ------------------------------------- -->
+<!-- ------------------------------------- -  ->
 
         <div id="tabs-map">
           <h2>THIS IS A MAP!</h2>
@@ -116,16 +145,8 @@
       </div>
     </div>
 
-
-
   </div>
 
-    <%= token_tag %>
-
-
-
+  <%= token_tag %>
 
 </div>
-
-
-<span id="from-where" style="display:none">search</span>
