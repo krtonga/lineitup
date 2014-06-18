@@ -1,6 +1,9 @@
 <div class="container header">
 
 <%= form_tag('/events/list', method: :get) do %>
+<div class="search_submit">
+  <%= submit_tag(value="Search") %>
+</div>
   <div class="container searches">
 
     <div class="five columns when">
@@ -18,6 +21,21 @@
       </div>
     <hr>
     </div>
+
+    <div class="five columns where">
+      <div class="question_image left">
+        <%= image_tag "where.png" %>
+      </div>
+      <h4>Find <br>What is <br>Near You!</h4><br />
+        <label for="location">Find by IP or ADDRESS:</label>
+        <input type="text" name="location" title="We automatically grab the IP address of your local server, and throw it into a Geocoding gem, but unfortunatbly IP addresses are commonly unreliable. Feel free to write in your an address manually to find events near you." value="">
+      <div class="ip">
+        <br>
+        <h4><em>And:</em> Search the block!</h4>
+        <p><em>Search for results w/in <br /><input type="text" name="radius" class="radius" value="5"> miles of where you are.</em></p>
+      </div>
+      <hr>
+    </div> to here
 
     <div class="five columns what">
       <div class="question_image left">
@@ -70,22 +88,11 @@
       <hr>
     </div>
 
-    <div class="five columns where">
-      <div class="question_image left">
-        <%= image_tag "where.png" %>
-      </div>
-      <h4>Find <br>What is <br>Near You!</h4><br />
-        <label for="location">Find by IP or ADDRESS:</label>
-        <input type="text" name="location" title="We automatically grab the IP address of your local server, and throw it into a Geocoding gem, but unfortunatbly IP addresses are commonly unreliable. Feel free to write in your an address manually to find events near you." value="">
-      <div class="ip">
-        <br>
-        <h4><em>And:</em> Search the block!</h4>
-        <p><em>Search for results w/in <br /><input type="text" name="radius" class="radius" value="5"> miles of where you are.</em></p>
-      </div>
-      <hr>
-    </div>
-  <%= submit_tag(value="Search") %>
+
+
   </div>
+
+
 <% end %>
 
 
