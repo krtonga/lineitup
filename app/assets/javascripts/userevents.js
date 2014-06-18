@@ -22,11 +22,6 @@ function userDateHtml(event) {
   }
 }
 
-
-
-
-
-
 EventCollection.prototype.fetchUserEvents = function() {
   var that = this;
   $.ajax({
@@ -52,7 +47,6 @@ var userEvents = new EventCollection();
 
 $(function () {
   if ($('span')[0].id == "this_is_profile") {
-    console.log("profile");
     userEvents.fetchUserEvents();
   }
   $('#user-event-details-close').on('click', function() {
@@ -67,7 +61,6 @@ $(function () {
     $('#event-details-div').hide();
   });
   $('#user_tab_for_click').on('click', function() {
-    console.log("profile");
     $('#from-where').text('user');
     userEvents = new EventCollection();
     userEvents.fetchUserEvents();
@@ -85,7 +78,6 @@ EventView.prototype.renderUserEvents = function() {
   var that = this;
   var $link = $('<a>', {
     html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + userDateHtml(this.model) + "</em>",
-    //html: this.model.eventName,
     href: '',
     id: this.model.eventID,
     click: function(){
@@ -96,7 +88,6 @@ EventView.prototype.renderUserEvents = function() {
   var that = this;
   $link.mouseenter(function() {
     timer = setTimeout(function() {
-      console.log(that.model.webDescription);
       displayUserEventDetails(that.model);
     }, 1000);
   }).mouseleave(function() {
@@ -108,7 +99,6 @@ EventView.prototype.renderUserEvents = function() {
 } // end renderUserEvents
 
 function clickedUserEvent(id) {
-  console.log("delete function?");
   var authenticityToken = $('input[name=authenticity_token]').val();
   $.ajax({
       url: '/events',

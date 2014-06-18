@@ -16,8 +16,8 @@ function createGeoArray(eventArray) {
       "lat": event.latitude,
       "lng": event.longitude,
 
-      "infowindow": event.venueName + ": <strong>" + event.eventName + "</strong>:  Address: <em>" + event.address +  "</em> : <a href=" + event.eventUrl + ">More Info</a>" + "<em> " + event.webDescription + "</em>" + "Free: <em>" + event.free +  "</em> Dates: " + event.eventDateList
-      }
+      "infowindow": buttonOrNot(event) + "</br>" + event.venueName + ": <strong>" + event.eventName + "</strong>:" +  "<p>Address:" + event.address +  "</p>" + "<a href=" + event.eventUrl + ">More Info</a>" + "<p>" + "Free: <em>" + event.free + "</p>" +  "</em> Dates: " + mapDates(event) + "<p> " + event.webDescription + "</p>"
+    }
 
     geoArray.push(geoObject);
   });
@@ -27,5 +27,28 @@ function createGeoArray(eventArray) {
 
 $(function(){
 
-  //MapBuild();
+
+  $(document).on('mousedown', function(e) {
+    //console.log("yo");
+    $(".mapbutton").on("click", function(){
+    clickedEvent($('.mapbutton').val());
+  });
 });
+
+});
+
+function mapDates(event) {
+  if ($('#from-where').text() == "search") {
+    return dateHtml(event);
+  } else {
+    return userDateHtml(event);
+  }
+}
+
+function buttonOrNot(event) {
+  if ($('#from-where').text() == "search") {
+    return "<button class=mapbutton type=button value=" + event.eventID +">Save Event</button>";
+  } else {
+    return "";
+  }
+}

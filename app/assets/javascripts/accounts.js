@@ -5,7 +5,6 @@ $(function() {
 
   $('#signup-link').on('click', function() {
     $('#login-div').hide();
-    //$('#signup-div').show();
     $('#signup-div').dialog();
     return false;
   });
@@ -93,7 +92,6 @@ function signUp(paramObject) {
     dataType: 'json',
     data: {authenticity_token: authenticityToken, user: paramObject},
     success: function(data) {
-      //console.log(data.email);
       window.location.reload();
     }
   });
@@ -119,7 +117,6 @@ function loginSession(paramObject) {
     dataType: 'json',
     data: paramObject,
     success: function(data) {
-      console.log(data);
       window.location.reload();
     }
   });
