@@ -120,11 +120,13 @@ function EventView(eventModel) {
 
 EventView.prototype.render = function() {
   var $eventLi =$('<li>');
+  var that = this;
   var $link = $('<a>', {
     html: "" + this.model.category + ': <strong>' + this.model.eventName + "</strong> Dates:  <em>" + dateHtml(this.model) + "</em>",
     href: '',
     id: this.model.eventID,
-    click: function(){
+    click: function(){displayEventDetails(that.model); return false;},
+    dblclick: function(){
       clickedEvent(this.id);
       return false;
     }
@@ -141,6 +143,7 @@ EventView.prototype.render = function() {
   $eventLi.append($link);
 
   this.el = $eventLi;
+  $('.intro-pg').hide();
   return this;
 }
 

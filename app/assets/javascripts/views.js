@@ -26,8 +26,7 @@ $(function(){
       } else {
         MapBuild(userEvents.models);
       }
-
-  });
+    });
 
   $(function() {
     $( ".column" ).sortable({
