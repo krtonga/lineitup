@@ -164,6 +164,9 @@ em {
   border-radius: 10px;
 }
 
+.event-details-tab {
+  display: none;
+}
 
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -179,16 +182,20 @@ em {
     right: -440px;
     border-radius: 5px;
     opacity: .9;
-  -moz-box-shadow: 0px 10px 10px #000;
-    -webkit-box-shadow: 0px 10px 10px #000;
+  -moz-box-shadow: 0px 5px 5px #000;
+    -webkit-box-shadow: 0px 5px 10px #000;
   }
   .event-details {
+    height: 100%;
     overflow-x: scroll;
+    position: relative;
+    top: -160px;
   }
   .header {
     zoom: 1;
   }
   .event-details-tab {
+    display: inline-block;
     position: relative;
     height: 140px;
     width: 13px;
