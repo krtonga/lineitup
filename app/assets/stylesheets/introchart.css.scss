@@ -1,0 +1,183 @@
+.float {
+  height: 55px;
+  margin: 0px 10px 10px 10px;
+  font-variant: small-caps;
+  span {
+    font-size: 1.8em;
+  }
+}
+
+.tophat, .shoes {
+  display: none;
+}
+
+.intro-pg {
+  margin: 10px;
+  font-size: 1.0em;
+  hr {
+    position: relative;
+    right: 30px;
+  }
+}
+
+.intro-text {
+  margin: 20px;
+  font-size: 1.5em;
+  line-height: 1em;
+  font-family: copperplate;
+}
+
+.explanation {
+  background-color: #FFFFEC;
+  border: 1px black dotted;
+  border-radius: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+  .innerworkings {
+    position: relative;
+    background-color: white;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+    padding: 15px;
+    margin: -15px;
+    width: 68%;
+    height: 125px;
+  }
+
+.search-icon {
+  width: 10%;
+  height: 145px;
+  padding: 40px;
+  padding-left: 30px;
+  border-radius: 100px 5px 5px 100px;
+}
+
+.list-icon {
+  width: 70%;
+  height: 90px;
+  border-radius: 30px 5px 30px;
+}
+
+.map-icon {
+  width: 70%;
+  height: 90px;
+  border-radius: 5px 30px 5px;
+  .innerworkings {
+    width: 68%;
+    left: 10px;
+    h2 {
+      font-size: 2em;
+    }
+  }
+}
+
+.circle {
+  background-color: grey;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  display: none;
+  span {
+    position: relative;
+    left: 20px;
+    top: 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .list-icon {
+    height: 100px;
+    width: 400px;
+    overflow: visible;
+    .innerworkings {
+      border-top: 1px dashed black;
+      border-bottom: 1px dashed black;
+      left: 90px;
+      width: 170px;
+      height: 200px;
+      text-align: center;
+      h1 {
+      }
+    }
+  }
+  .map-icon {
+    width: 200px;
+    overflow: visible;
+    .innerworkings {
+      top: 40px;
+      left: 22px;
+      border-bottom: 1px dashed grey;
+    }
+  }
+  hr {
+    top: 140px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  .tophat {
+    display: inline;
+    width: 50%;
+    position: relative;
+    left: 120px;
+    z-index: 100;
+  }
+  .search-icon {
+    width: 38%;
+    height: 100px;
+    border-radius: 10px;
+    border-top-right-radius: 150px;
+    border-top-left-radius: 150px;
+    padding-left: 70px;
+    position: relative;
+    top: -60px;
+    left: 50px;
+  }
+  .list-icon {
+    height: 550px;
+    width: 30%;
+    position: relative;
+    top: -40px;
+    left: 35px;
+    .innerworkings {
+      border-top: 1px dashed black;
+      margin-top: 15px;
+      margin-left: -5px;
+      height: 370px;
+      background-color: #F8F8F8;
+      h1 {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+  .map-icon {
+    height: 550px;
+    width: 30%;
+    position: relative;
+    top: -40px;
+    left: 55px;
+    overflow: visible;
+    .innerworkings {
+      border-top: 1px dashed black;
+      border-bottom: 1px dashed black;
+      margin-top: 40px;
+      margin-left: -30px;
+      padding-top: 50px;
+      height: 240px;
+      width: 120px;
+      text-align: center;
+    }
+  }
+  .shoes {
+    display: inline;
+    width: 75%;
+    position: relative;
+    top: -30px;
+
+  }
+}
