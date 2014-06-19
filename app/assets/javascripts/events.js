@@ -144,6 +144,7 @@ EventView.prototype.render = function() {
 
   this.el = $eventLi;
   $('.intro-pg').hide();
+  $('#pretty_result_string').show();
   return this;
 }
 
@@ -155,8 +156,10 @@ function clickedEvent(id) {
     $.each(eventCollection.models, function(index, event){
       if (event.eventID == id) {
         event.create();
-        $('#saved_alert').text('Saving ' + event.eventName);
+        $('#saved_alert').text('Saved ' + event.eventName);
         $('#saved_alert').show();
+        $('#saved_from_map').text('Saved ' + event.eventName);
+        $('#saved_from_map').show();
       }
     });
   }
