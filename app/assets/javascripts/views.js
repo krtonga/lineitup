@@ -7,6 +7,9 @@ $(function(){
   $( document ).tooltip();
   $( "#tabs" ).tabs();
   searchbar();
+  setWindowStyle();
+  $(window).resize(setWindowStyle);
+
 
   $('#map_tab_for_click').on('click', function() {
     console.log('map clicked!');
@@ -18,7 +21,17 @@ $(function(){
   });
 });
 
-
+function setWindowStyle(){
+  console.log($(window).width())
+  if ($(window).width() < 768 && $(window).width() > 479){
+    descriptionbarMED();
+  } else if ($(window).width() < 479){
+    disabledescriptionbar();
+    descriptionbarSMALL();
+  } else {
+    disabledescriptionbar();
+  }
+};
 
 function searchbar(){
   $('.search-bar').delay(200).animate({'marginLeft':'-275px'},200);
@@ -30,10 +43,8 @@ function searchbar(){
   }});
 };
 
-function descriptionbar(){
-  var windowWidth = $(window).width();
-  if(windowWidth > 767){
-    $('.eventInfo').delay(200).animate({'right':'-440px'},200);
+function descriptionbarMED(){
+    $('.eventInfo').delay(200).animate({'right':'-20px'},200);
     $('.event-details-tab').on('click', function() {
       console.log("clicked desc");
       if ( $('.eventInfo').css('right') === '-440px' ) {
@@ -41,7 +52,21 @@ function descriptionbar(){
       } else {
         $('.eventInfo').animate({'right':'-440px'},200);
     }});
-  }
+};
+
+function descriptionbarSMALL(){
+    $('.eventInfo').delay(200).animate({'right':'-20px'},200);
+    $('.event-details-tab').on('click', function() {
+      console.log("clicked desc");
+      if ( $('.eventInfo').css('right') === '-320px' ) {
+        $('.eventInfo').animate({'right':'-20px'},200);
+      } else {
+        $('.eventInfo').animate({'right':'-320px'},200);
+    }});
+};
+
+function disabledescriptionbar(){
+    $('.eventInfo').delay(200).animate({'right':'none'},200);
 };
 
 

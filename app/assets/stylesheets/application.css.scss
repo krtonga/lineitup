@@ -175,6 +175,10 @@ em {
 
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  .ui-tabs-panel {
+    width: 450px;
+    margin-right: 70px;
+  }
   .eventInfo {
     background-color: white;
     padding: 15px;
@@ -192,7 +196,8 @@ em {
   }
   .event-details {
     height: 100%;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
     top: -160px;
   }
@@ -219,6 +224,7 @@ em {
 
   }
 }
+
 .venue-info {
   border-left: 1px solid black;
   padding: 10px;
@@ -506,3 +512,212 @@ em {
  font-family: Copperplate;
 }
 
+@media only screen and (max-width: 479px) {
+  .eventInfo {
+    background-color: white;
+    padding: 15px;
+    border-top: 3px solid black;
+    border-radius: 45px;
+    border-bottom: 1px dotted black;
+    position: fixed;
+    height: 50%;
+    bottom: 50px;
+    right: -440px;
+    border-radius: 5px;
+    opacity: .9;
+  -moz-box-shadow: 0px 5px 5px #000;
+    -webkit-box-shadow: 0px 5px 10px #000;
+  }
+
+  .event-details-tab {
+    display: inline-block;
+    position: relative;
+    height: 140px;
+    width: 13px;
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    padding-left: 12px;
+    right: 49px;
+    border-radius: 15px 0px 0px 15px;
+    font-family: copperplate;
+    line-height: .8em;
+  }
+
+  .event-details {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    top: -160px;
+  }
+
+  .tophat {
+    display: inline;
+    width: 50%;
+    position: relative;
+    left: 70px;
+    top: -10px;
+    z-index: 100;
+  }
+  .search-icon {
+    width: 38%;
+    height: 100px;
+    border-radius: 10px;
+    border-top-right-radius: 150px;
+    border-top-left-radius: 150px;
+    padding-left: 40px;
+    position: relative;
+    left: 30px;
+  }
+  .list-icon {
+    height: 550px;
+    width: 30%;
+    position: relative;
+    top: -40px;
+    left: 15px;
+    .innerworkings {
+      border-top: 1px dashed black;
+      margin-top: 15px;
+      margin-left: -20px;
+      height: 370px;
+      width: 100%;
+      background-color: #F8F8F8;
+      padding-left: 5px;
+      text-align: center;
+      h1 {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+  .map-icon {
+    height: 550px;
+    width: 30%;
+    position: relative;
+    top: -40px;
+    left: 35px;
+    overflow: visible;
+    .innerworkings {
+      border-top: 1px dashed black;
+      border-bottom: 1px dashed black;
+      margin-top: 40px;
+      margin-left: -35px;
+      padding: 1px;
+      padding-top: 50px;
+      height: 240px;
+      width: 115px;
+      text-align: center;
+      font-size: .9em;
+    }
+  }
+  .shoes {
+    display: inline;
+    width: 75%;
+    position: relative;
+    top: -30px;
+
+  }
+}
+
+
+.bottom {
+  background-color: black
+}
+
+.fixed {
+  position: fixed;
+  top: 0px;
+  float: right;
+}
+
+.search-button {
+  background-color: black;
+}
+
+.sortable-categories {
+  margin-right: 140px;
+
+  .column {
+    width: 170px;
+    float: left;
+    padding-bottom: 100px;
+  }
+  .portlet {
+    margin: 0 1em 1em 0;
+    padding: 0.3em;
+    background-color: grey;
+  }
+  .portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+    background-color: lightgrey;
+  }
+  .portlet-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+  }
+  .portlet-content {
+    padding: 0.4em;
+  }
+  .portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 50px;
+  }
+}
+
+.saved-events-tab {
+  .ui-tabs-anchor {
+    background-color: white;
+  }
+}
+
+.explanation {
+}
+
+.logo {
+  position: relative;
+  display: none;
+  top: -100px;
+  height: 0px;
+}
+
+.search_submit {
+  position: relative;
+  top: 45px;
+  left: 300px;
+  height: 50px;
+  width: 100px;
+
+}
+
+#signup-link, #login-link, #logout-link {
+  text-decoration: none;
+}
+
+.gm-style-iw{
+  overflow: scroll;
+  width: 170px;
+  height: 200px;
+}
+
+.title {
+  float: left;
+  padding-left: 60px;
+}
+
+.eventInfo {
+  visibility: hidden;
+}
+
+ #pretty_result_string{
+ font-family: Copperplate;
+}
+
+  #event-list {
+    padding-right: 50px;
+  }
