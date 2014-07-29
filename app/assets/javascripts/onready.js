@@ -1,5 +1,6 @@
 
 var eventCollection = new EventCollection();
+var userEvents = new EventCollection();
 
 $(function() {
   accountSetUp();
@@ -19,6 +20,33 @@ $(function() {
   scrollEventDetails();
 });
 
+
+$(function () {
+  if ($('span')[0].id == "this_is_profile") {
+    userEvents.fetchUserEvents();
+  }
+  $('#user-event-details-close').on('click', function() {
+    $('#user-event-details-div').hide();
+  });
+  $('#user-event-details-delete').on('click', function() {
+    $('#user-event-details-div').hide();
+    clickedUserEvent($('#event_id_hide').text());
+
+  });
+  $('#event-details-close').on('click', function() {
+    $('#event-details-div').hide();
+  });
+  $('#user_tab_for_click').on('click', function() {
+    $('#from-where').text('user');
+    userEvents = new EventCollection();
+    userEvents.fetchUserEvents();
+  });
+  $('#search_tab_for_click').on('click', function() {
+    console.log("profile");
+    $('#from-where').text('search');
+    userEvents.fetchUserEvents();
+  });
+}); // end document ready
 
 
 

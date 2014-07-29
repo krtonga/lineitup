@@ -53,7 +53,7 @@ class EventsController < ApplicationController
         @location = "Starting Point: " + params[:location]
       end
       if params[:radius] != ""
-        @radius = "Radius " + params[:radius] + " miles"
+        @radius = "Radius: " + params[:radius] + " miles"
       end
     end
   end

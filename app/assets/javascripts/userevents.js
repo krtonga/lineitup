@@ -1,4 +1,31 @@
 
+function UserEventModel(data) {
+  this.startDate = data.start_date;
+  this.endDate = data.end_date;
+  this.recurString = data.recurstring;
+  this.eventName = data.event_name;
+  this.eventID = data.event_id;
+  this.eventDateList = data.event_date_list;
+  this.recurringStartDate = data.recurring_start_date;
+  this.recurringEndDate = data.recurring_end_date;
+  this.recurDays = data.recur_days;
+  this.category = data.category;
+  this.eventUrl = data.event_detail_url;
+  this.webDescription = data.web_description;
+  this.venueName = data.venue_name;
+  this.venueDetailUrl = data.venue_detail_url;
+  this.latitude = data.geocode_latitude;
+  this.longitude = data.geocode_longitude;
+  this.address = data.street_address;
+  this.phone = data.telephone;
+  this.venueUrl = data.venue_website;
+  this.free = data.free;
+}
+
+
+
+
+
 function userDateHtml(event) {
   var weekday = new Array(7);
   weekday[0]=  "sun";
@@ -43,34 +70,6 @@ EventCollection.prototype.fetchUserEvents = function() {
 
 
 
-var userEvents = new EventCollection();
-
-$(function () {
-  if ($('span')[0].id == "this_is_profile") {
-    userEvents.fetchUserEvents();
-  }
-  $('#user-event-details-close').on('click', function() {
-    $('#user-event-details-div').hide();
-  });
-  $('#user-event-details-delete').on('click', function() {
-    $('#user-event-details-div').hide();
-    clickedUserEvent($('#event_id_hide').text());
-
-  });
-  $('#event-details-close').on('click', function() {
-    $('#event-details-div').hide();
-  });
-  $('#user_tab_for_click').on('click', function() {
-    $('#from-where').text('user');
-    userEvents = new EventCollection();
-    userEvents.fetchUserEvents();
-  });
-  $('#search_tab_for_click').on('click', function() {
-    console.log("profile");
-    $('#from-where').text('search');
-    userEvents.fetchUserEvents();
-  });
-}); // end document ready
 
 
 EventView.prototype.renderUserEvents = function() {
@@ -115,34 +114,6 @@ function clickedUserEvent(id) {
 } // end clickedUserEvent
 
 
-function displayEventDetails(event) {
-  $titleDiv = $('.el-title');
-  $detailsList = $('#event-details-list');
-  $venueList = $('#venue-list');
-  $titleDiv.html('');
-  $detailsList.html('');
-  $venueList.html('');
-  var name = $('<h4>').html(event.eventName);
-  var descriptionEl = $('<li>').html(event.webDescription);
-  var eventUrl = $('<a>', {
-                   text: event.eventUrl,
-                   href: event.eventUrl
-                });
-  var venueUrl = $('<a>', {
-                   text: event.venueName,
-                   href: event.venueDetailUrl
-                });
-  var address = $('<p>').html('<em>' + event.address + '</em>')
-  $titleDiv.append(name);
-  $detailsList.append(descriptionEl);
-  $detailsList.append(eventUrl);
-  $venueList.append(venueUrl).append(address);
-
-  $('#event-details-div').show();
-  $('#event-details-close').show();
-  $('.eventInfo').css("visibility", "visible");
-
-}
 
 
 

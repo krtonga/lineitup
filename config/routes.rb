@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create', as: 'users'   #we are using this also
 
-  post '/events' => 'events#create'
-  get '/events/list' => 'events#list', as: 'event_list'
-  get '/events/show' => 'events#show'
+  post '/events' => 'events#create'  #we are using this
+  get '/events/list' => 'events#list', as: 'event_list'  #we are using this
+  get '/events/show' => 'events#show'  # we are using this
   get '/events/userevents' => 'events#userevents'
   delete '/events' => 'events#destroy'
 
