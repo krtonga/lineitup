@@ -1,6 +1,78 @@
 
-$(function() {
-  console.log("the window has loaded...");
+function showHide() {
+  var status = $('.user-id-span').data("user");
+  if (status == 'no_user') {
+    $('#logout-link').hide();
+  } else {
+    $('#login-link').hide();
+    $('#signup-link').hide();
+  }
+}
+
+function signUp(paramObject) {
+  var authenticityToken = $('input[name=authenticity_token]').val();
+  $.ajax({
+    url: '/users',
+    method: 'post',
+    dataType: 'json',
+    data: {authenticity_token: authenticityToken, user: paramObject},
+    success: function(data) {
+      window.location.reload();
+    }
+  });
+}
+
+function userParam() {
+  var email = $('#user_email').val();
+  var password = $('#user_password').val();
+  var paramObject = {
+    email: email,
+    password: password
+  }
+  return paramObject;
+}
+
+function loginSession(paramObject) {
+  $.ajax({
+    url: '/sessions',
+    method: 'post',
+    dataType: 'json',
+    data: paramObject,
+    success: function(data) {
+      window.location.reload();
+    }
+  });
+}
+
+function sessionParam() {
+  var authenticityToken = $('input[name=authenticity_token]').val();
+  var email = $('#email').val();
+  var password = $('#password').val();
+  var paramObject = {
+    email: email,
+    password: password,
+    authenticity_token: authenticityToken
+  }
+  return paramObject;
+}
+
+function logOut() {
+    var authenticityToken = $('input[name=authenticity_token]').val();
+    $.ajax({
+      url: '/sessions',
+      method: 'delete',
+      dataType: 'json',
+      data: {authenticity_token: authenticityToken},
+      success: function() {
+        window.location.reload();
+      }
+    });
+    $('#logout-link').hide();
+    $('#login-link').show();
+    $('#signup-link').show();
+}
+
+function accountSetUp() {
   showHide();
 
   $('#signup-link').on('click', function() {
@@ -49,86 +121,7 @@ $(function() {
     $('#logout-link').show();
     return false;
   });
-
-});
-
-function showHide() {
-  var status = $('.user-id-span').data("user");
-  if (status == 'no_user') {
-    $('#logout-link').hide();
-  } else {
-    $('#login-link').hide();
-    $('#signup-link').hide();
-  }
 }
-
-function logOut() {
-    var authenticityToken = $('input[name=authenticity_token]').val();
-    $.ajax({
-      url: '/sessions',
-      method: 'delete',
-      dataType: 'json',
-      data: {authenticity_token: authenticityToken},
-      success: function() {
-        console.log('hello');
-        window.location.reload();
-      }
-    });
-    $('#logout-link').hide();
-    $('#login-link').show();
-    $('#signup-link').show();
-}
-
-
-function userParam() {
-  var email = $('#user_email').val();
-  var password = $('#user_password').val();
-  var paramObject = {
-    email: email,
-    password: password
-  }
-  return paramObject;
-}
-
-
-function signUp(paramObject) {
-  var authenticityToken = $('input[name=authenticity_token]').val();
-  $.ajax({
-    url: '/users',
-    method: 'post',
-    dataType: 'json',
-    data: {authenticity_token: authenticityToken, user: paramObject},
-    success: function(data) {
-      window.location.reload();
-    }
-  });
-}
-
-function sessionParam() {
-  var authenticityToken = $('input[name=authenticity_token]').val();
-  var email = $('#email').val();
-  var password = $('#password').val();
-  var paramObject = {
-    email: email,
-    password: password,
-    authenticity_token: authenticityToken
-  }
-  return paramObject;
-}
-
-function loginSession(paramObject) {
-
-  $.ajax({
-    url: '/sessions',
-    method: 'post',
-    dataType: 'json',
-    data: paramObject,
-    success: function(data) {
-      window.location.reload();
-    }
-  });
-}
-
 
 
 

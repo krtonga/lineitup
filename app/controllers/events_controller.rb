@@ -4,11 +4,11 @@ class EventsController < ApplicationController
 
 
 
-  def index
-    @user = User.new
-    ip = request.location
-    @ip = ip.to_json
-  end
+  # def index
+  #   @user = User.new
+  #   ip = request.location
+  #   @ip = ip.to_json
+  # end
 
   def show
     results = Event.pullAPI(params[:filter])
@@ -58,8 +58,7 @@ class EventsController < ApplicationController
     end
   end
 
-  # def new
-  # end
+
 
   def userevents
     curr_user = User.find(current_user.id)
@@ -76,10 +75,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # def profile
-
-
-  # end
 
 
   def create
@@ -95,16 +90,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @event = Event.find(params[:id])
-  # end
-
-  # def update
-
-  #   @event = Event.find(params[:id])
-  #   @event.update(event_params)
-  #   redirect_to event_path(event)
-  # end
 
   def destroy
     user = User.find(current_user.id)
@@ -123,6 +108,7 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
     event_params = params.require(:event).permit(:event_name,
      :category,

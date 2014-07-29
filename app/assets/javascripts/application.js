@@ -19,7 +19,3 @@
 //= require underscore
 //= require gmaps/google
 
-
-$(function(){
-  console.log("ground control to major tom");
-})
