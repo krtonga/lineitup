@@ -9,6 +9,25 @@ function MapBuild(modelsArray){
 }
 
 
+function mapSetup(){
+  $('#map_tab_for_click').on('click', function() {
+    if ($('#from-where').text() == "search") {
+      MapBuild(eventCollection.models);
+    } else {
+      MapBuild(userEvents.models);
+    }
+  });
+}
+
+
+function listenForMapButton(){
+  $(document).on('mousedown', function(e) {
+    $(".mapbutton").on("click", function(){
+      clickedEvent($('.mapbutton').val());
+    });
+  });
+}
+
 
 function createGeoArray(eventArray) {
   console.log("here in geo array");
@@ -38,7 +57,8 @@ function mapDates(event) {
 }
 
 function buttonOrNot(event) {
-  if ($('#from-where').text() == "search") {
+  var status = $('.user-id-span').data("user");
+  if ($('#from-where').text() == "search" && status !="no_user") {
     return "<button class=mapbutton type=button value=" + event.eventID +">Save Event</button>";
   } else {
     return "";

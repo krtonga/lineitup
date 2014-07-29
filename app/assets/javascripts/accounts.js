@@ -4,6 +4,7 @@ function showHide() {
   if (status == 'no_user') {
     $('#logout-link').hide();
     $('#user_tab_for_click').hide();
+    //$('.mapbutton').hide();
   } else {
     $('#login-link').hide();
     $('#signup-link').hide();
