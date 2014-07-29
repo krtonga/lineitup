@@ -65,7 +65,7 @@ $(document).ready(function(){
   // pos = eiPos + tabPos;
   $(window).scroll(function(){
     windowpos = $(window).scrollTop();
-    if (windowpos >= 155) {
+    if (windowpos >= 155 && $('#event-list').height() > $('.eventInfo').height()) {
       ei.addClass("fixed");
     } else {
       ei.removeClass("fixed");
