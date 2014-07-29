@@ -3,9 +3,12 @@ function showHide() {
   var status = $('.user-id-span').data("user");
   if (status == 'no_user') {
     $('#logout-link').hide();
+    $('#user_tab_for_click').hide();
   } else {
     $('#login-link').hide();
     $('#signup-link').hide();
+    $('#user_tab_for_click').show();
+    $('#login_alert').hide();
   }
 }
 

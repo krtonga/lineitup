@@ -8,7 +8,7 @@ function MapBuild(modelsArray){
   });
 }
 
-//
+
 
 function createGeoArray(eventArray) {
   console.log("here in geo array");
@@ -27,17 +27,7 @@ function createGeoArray(eventArray) {
   return geoArray;
 }
 
-$(function(){
 
-
-  $(document).on('mousedown', function(e) {
-    //console.log("yo");
-    $(".mapbutton").on("click", function(){
-    clickedEvent($('.mapbutton').val());
-  });
-});
-
-});
 
 function mapDates(event) {
   if ($('#from-where').text() == "search") {

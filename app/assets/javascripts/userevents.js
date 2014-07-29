@@ -146,22 +146,7 @@ function displayEventDetails(event) {
 
 
 
-// function displayUserEventDetails(event) {
-//   $detailsList = $('#user-event-details-list')
-//   $detailsList.html('');
-//   var descriptionEl = $('<li>').html(event.webDescription);
-//   var eventUrl = $('<a>', {
-//                    text: event.eventUrl,
-//                    href: event.eventUrl
-//                 });
-//   $detailsList.append(descriptionEl);
-//   $detailsList.append(eventUrl);
-//   $('#user-event-details-div').show();
-//   $('#user-event-details-close').show();
-//   $('#user-event-details-delete').show();
-//   $('#event_id_hide').text(event.eventID);
-//   $('.eventInfo').css("visibility", "visible");
-// }
+
 
 function displayUserEventDetails(event) {
   $titleDiv = $('.user-el-title');

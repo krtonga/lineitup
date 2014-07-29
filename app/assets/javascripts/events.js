@@ -197,15 +197,4 @@ EventModel.prototype.create = function() {
   });
 }
 
-var eventCollection = new EventCollection();
 
-$(function () {
-    if ($('.user-id-span').data("user") == "no_user") {
-      $('#user_tab_for_click').hide();
-    } else {
-      $('#user_tab_for_click').show();
-      $('#login_alert').hide();
-    }
-
-    eventCollection.fetch();
-});
